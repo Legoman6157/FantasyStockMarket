@@ -9,6 +9,7 @@
 * Holland Johnsin
 * Dylan Sullenberger
 
+## Team Name for Github: Fantasy Stock Market Team.
 
 # Section 1: Introduction 
 
