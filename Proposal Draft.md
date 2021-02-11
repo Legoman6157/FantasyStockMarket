@@ -125,6 +125,7 @@ Create a tentative schedule:
 Constraints:
 Are there any regulatory, or legal constraints? 
 * We will have to look into potential copyright issues with the title of our game and potential patents that exist.
+
 Are there any ethical or social concerns? 
 * We must be clear that our game is in no way like the real stock market and does not offer financial advice.
 
