@@ -104,42 +104,22 @@ We will be rotating roles.
 
 # Section 5: Project Management 
 Schedule:
-Is completion  of the system feasible?
-* Yes. If the team keeps to a tight schedule, completion of the project is feasible. Our basic idea is not very complicated, but we hope to implement more features, time allowing. 
+We believe that if the team keeps to a tight schedule, completion of the project is feasible. Our basic idea is not very complicated, but we hope to implement more features, time allowing. We will mostly meet on Tuesdays and Thursdays before and after classes on Discord to discuss the project's progress and give eachother updates. We can also communicate on the text section of discord at all hours of the day to ask for help or discuss things.
 
-When and how often will you meet? 
-* We will mostly meet on Tuesdays and Thursdays before and after classes on Discord.
+###### Schedule:
+| Week         | Task |
+|--------------|-------------------------------------|
+| 1 | Draft the proposal. Research stock market to design a good replicate system. |
+| 2 | Revise project proposal. Get the team acclimated to new technologies. |
+| 3 | Work on the project. Get basic infrastructure up and running. |
+| 4 | Finish first draft of the software. Create a status report. |
+| 5 | Implement quest system and touch up stock market system. Improve user interface. |
+| 6 | Finish second draft. Create a second status report. |
+| 7 | Analyze where we are at in the project and determine what features can be feasibly added. |
+| 8 | Finish 3rd draft. Create a third status report. |
+| 9 | Continue to add additional features while fine tuning the other systems. Improve user interface. |
+| 10| Finish final draft. Write a project report. |
 
-Create a tentative schedule: 
-* Week 1: Draft the proposal. Research stock market to design a good replicate system.
-* Week 2: Revise project proposal. Get the team acclimated to new technologies.
-* Week 3: Work on the project. Get basic infrastructure up and running.
-* Week 4: Finish first draft of the software. Create a status report.
-* Week 5: Implement quest system and touch up stock market system. Improve user interface.
-* Week 6: Finish second draft. Create a second status report.
-* Week 7: Analyze where we are at in the project and determine what features can be feasibly added.
-* Week 8: Finish 3rd draft. Create a third status report.
-* Week 9: Continue to add additional features while fine tuning the other systems. Improve user interface.
-* Week 10: Finish final draft. Write a project report.
 
-Constraints:
-Are there any regulatory, or legal constraints? 
-* We will have to look into potential copyright issues with the title of our game and potential patents that exist.
-
-Are there any ethical or social concerns? 
-* We must be clear that our game is in no way like the real stock market and does not offer financial advice.
-
-Resources:
-Will you have access  to the data you need? 
-* Yes. Our game will not run off of real stocks, so the only thing the team needs is a basic understanding of the market.
-
-Descoping:
-What will happen  if the full functionality can not be implemented. 
-* If the full functionality can not be achieved then we will cut out the quest/raid portion of the game and leave it as a basic stock market game.
-
-Will the reduced functionality operate? 
-* Yes, the reduced functionality will operate.
-
-Will it be useful (at least partially solving the problem)? 
-* The game will still be playable, but it may be a bit basic/less engaging if the quest system is removed.
+We will have to look into potential copyright issues with the title of our game and potential patents that exist. We must be clear that our game is in no way like the real stock market and does not offer financial advice. Our game will not run off of real stocks, so the only thing the team needs is a basic understanding of the market. If the full functionality can not be achieved then we will cut out the quest/raid portion of the game and leave it as a basic stock market game. The reduced functionality will operate, but it may be a bit basic/less engaging if the quest system is removed.
 
