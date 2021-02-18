@@ -26,37 +26,18 @@ and speculate, eventually attaining digital exuberance.
 
 
 # Section 2: Customer Value 
-Who is the primary customer?
-* The primary customer is the general public (whoever wants to play our game).
 
-What does the customer want?
-* The customer wants entertainment.
-
-Why? What is their underlying problem to solve or experience to have?
-* They are bored. want to experience a fantasy world with quests, and invest in the market with no real risks.
-
-Place your software in the context of the market.
-* Our game stands out from other idle games because of its unique market element.
-
-Proposed Solution:
-From the customer’s POV, what will your solution deliver?
-* Our game will solve the customers boredom and allow customers to invest in the market with no real world risks.
-
-How will the customer benefit from your proposed solution?
-* They will no longer be bored. 
-
-Does it provide a new capability or is it much better, easier, faster …?
-* It provides a unique experience by introducing the player to a stock market in a fantasy setting.
-
-Have you tested the idea on anyone?
-* We have tested the idea on at least one person, and they liked it .
-
-Measures of Success:
-How will you know if customers got the benefits you want to provide?
-* We could create a feedback system or ask for reviews of our game.
-
-What are your customer-centric measures of success?
-* Five star reviews are a measure of success.
+The primary customer for Merchant Sim 1434 is the general public (whoever wants to play our game), and our customers 
+seek entertainment. While their underlying problem to be solved is boredom, our customerts also want to experience a 
+fatasy world with quests and invest in a market without any real risks. Our software in the context of the real 
+world market shows that our game stands out from other idle games becuase of its unique market element. 
+From the customer's point-of-view, our solution will solve the customers' boredom and allow customers to invest in
+the market with no real world monetary liabilites. The customer will also benefit from our proposed solution as 
+they will no longer be bored and will instead be entertained. Additionally, our game provides a unique experience
+by introducting the player to a stock market in a fantasy setting. We have already tested the idea on at least one 
+person, and they were interested. 
+We could know if customers got the benefits we want to provide by creating a feedback system or asking for reviews 
+of our game. Our customer-centric measures of success are five star reviews.
 
 # Section 3: Tech
 
