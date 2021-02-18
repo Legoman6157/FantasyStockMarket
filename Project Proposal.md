@@ -41,32 +41,6 @@ of our game. Our customer-centric measures of success are five star reviews.
 
 # Section 3: Tech
 
-From the developer’s POV, what will your software do?
-* Simulate a stock market
-* Simulate idle game components
-
-What are the main components of your system? What do they do?
-* Trading: buy and sell stocks on a simulated stock market.
-* Quests that are completed over time that provide the player with rewards
-
-What is a high-level block diagram of the architecture of the system?
-* Idle game -> money <-> Stock market
-
-What is a minimal system that would have some value to the customer?
-* A weak simulation of the stock market.
-
-What are some possible enhancements that customers would value?
-* Post game content, rich story, worldbuilding, raids.
-
-How will you test your system?
-* Playing the game. Getting others to play test to reduce personal bias.
-
-What will you use to build the system?
-* HTML, CSS, and Javascript
-
-Are there available tools you can leverage?
-* jQuery
-
 Our software will allow the user to trade "stocks" through a simulated stock market and gain money through an idle-game-type quest system that they can, in turn, use in the stock market. Mainly, our system will consist of the stock market and the idle quests, as well as the user interface. Currently, the stock market simulation is meant to be weak, we're only planning on adding buying and selling of stocks, no calls, no preferred stocks vs. common stocks or anything too complex, just a number of different stocks for things like stocks, scrolls, etc. We aren't trying to make an accurate stock market simulation. The idle quest system will also be rather simple, with different possibilities of success. The lower the chance of success, the higher the reward. Minimally, we would have just the stock market side of things, with all of the aforemention simplicity, as that would be the more important piece of this. Post-game content, a developed story, world-building events, graphs representing how various stocks have done recently and more types of quests are all possible enhancements we could add that customers would like. For example: The ruler declares war. Now, swords are worth more, which the user may be able to take advantage of. Testing will consist of us playing the game, running the stock market for some time to ensure it functions alright, and letting other people play the game. Our chosen programming/style sheet/markup languages will be HTML, CSS, Javascript, and jQuery.
 
 # Section 4: Team
