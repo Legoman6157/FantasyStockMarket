@@ -68,20 +68,14 @@ Are there available tools you can leverage?
 * jQuery
 
 # Section 4: Team
-Skills:
-Has anybody on the team built something like this before?
-* No, this is a new experience for all of us.
 
-Are the tools known or new to the team?
-* Most of the tools are new to the team, although some may be familiar to some of us.
+Nobody on our team has ever made anything similar to this project before.  While we have all programmed before, we will be using JavaScript, HTML, and CSS to build the language, which a couple of us may have worked with a little in the past, but not to the extent we will be in this project.  In addition, jQuery is brand new to all of us.  It will be a good learning experience for us all.  Since this is new to all of us, we plan to rotate our roles so that we can each get experience in multiple areas.  Our starting roles are listed below.
 
-Roles:
-We will be rotating roles.
-* Narrative/Design
-* Interface
-* Research
-* Software Design
-* Project Management
+* Narrative/Design - Holland
+* Interface - Joshua
+* Research - Dylan
+* Software Design - Austin
+* Project Management - Andrew
 
 # Section 5: Project Management 
 Schedule:
