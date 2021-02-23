@@ -1,29 +1,41 @@
 <html>
+<meta charset='UTF-8'>
 <head>
     <link rel="stylesheet" type="text/css" href="interface.css" />
+    <link href='https://fonts.googleapis.com/css?family=Beth Ellen' rel='stylesheet'>
 </head>
 <body>
-    <button onClick="basicClick(1)">Go on quest</button>
-    <button onClick="hireAdventurer(1)">Hire adventurer - <span id="adventurerCost">10</span>g</button>
-    <br />
-    Gold: <span id="gold">0</span>g
-    <br />
-    Adventurers: <span id="adventurers">0</span>
-    <br/><br/><br/>
-    <button onClick="buyScroll(1)">Buy scroll</button>
-    <button onClick="sellScroll(1)">Sell scroll</button>
-    <br/>
-    Scrolls: <span id="scrolls">0</span>
-    <br/>
-    Scroll Price: <span id="scrollPrice">0</span>g +<span id='scrollHigh'>0</span>/<span id='scrollLow'>0</span>
-    <br/>
-    Bias [<span id="scrollBias">0</span>]: <button onClick="b_up()">+</button> <button onClick="b_down()">-</button>
-    <br/>
-    Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up()">+</button> <button onClick="v_down()">-</button>
-    <br/>
-    <br/>
-    Trading Day: <span id="tradingDay">1</span>
-    <br/>
-    Time: <span id='hour'>0</span>
+    <div id="header">Merchant Sim 1434</div>
+    <div id="time-container" class="content">
+      Trading Day: <span id="tradingDay">1</span>
+      &nbsp;
+      Time: <span id='hour'>0</span>
+    </div>
+    <div id="money-container" class="content">
+      Gold: <span id="gold">0</span>g
+    </div>
+    <div id="stock-outer-container" class="content" align="center">
+      <div id="stock-inner-container" class="content">
+        <h1>Stock Options</h1>
+        <button onClick="buyScroll(1)">Buy scroll</button>
+        <button onClick="sellScroll(1)">Sell scroll</button>
+        <br/>
+        Scrolls: <span id="scrolls">0</span>
+        <br/>
+        Scroll Price: <span id="scrollPrice">0</span>g +<span id='scrollHigh'>0</span>/<span id='scrollLow'>0</span>
+        <br/>
+        Bias [<span id="scrollBias">0</span>]: <button onClick="b_up()">+</button> <button onClick="b_down()">-</button>
+        <br/>
+        Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up()">+</button> <button onClick="v_down()">-</button>
+      </div>
+    </div>
+    <div id="quest-outer-container" class="content" align="center">
+      <div id="quest-inner-container" class="content">
+        <h1>Quests</h3>
+        <button onClick="basicClick(1)">Go on quest</button>
+        <button onClick="hireAdventurer(1)">Hire adventurer - <span id="adventurerCost">10</span>g</button>
+        Adventurers: <span id="adventurers">0</span>
+      </div>
+    </div>
     <script type="text/javascript" src="main.js"></script>
 </body>

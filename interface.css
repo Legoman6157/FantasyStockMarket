@@ -1,0 +1,55 @@
+body {
+  margin-top: 4%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background-image: url('images/scroll.png');
+  background-position: top;
+  background-size: 100%;
+  font-family: Georgia;
+}
+#header {
+font-family: 'Beth Ellen', Georgia;
+  font-size: 40pt;
+  text-align: center;
+  color: black;
+  padding-bottom: 11%;
+}
+.content {
+  font-size: 15pt;
+}
+#time-container {
+  width: 100%;
+  text-align: center;
+}
+#stock-outer-container {
+  float: left;
+  width: 50%;
+}
+#stock-inner-container {
+  /* float: center; */
+  text-align: center;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  width: 90%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+#quest-outer-container {
+  float: right;
+  width: 50%;
+}
+#quest-inner-container {
+  /* float: right; */
+  text-align: center;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  width: 90%;
+  height: 100%;
+}
+button {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border: solid black 1px;
+}
