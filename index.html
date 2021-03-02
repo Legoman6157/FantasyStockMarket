@@ -7,7 +7,7 @@
 <body>
     <div id="header">Merchant Sim 1434</div>
     <div id="time-container" class="content">
-      Trading Day: <span id="tradingDay">1</span>
+      Trading Day: <span id="tradingDay">1</span>, <span id="tradingHour">0</span>:00
       &nbsp;
       Time: <span id='hour'>0</span>
     </div>
@@ -17,12 +17,14 @@
     <div id="stock-outer-container" class="content" align="center">
       <div id="stock-inner-container" class="content">
         <h1>Stock Options</h1>
+        <button onClick="buyScroll(10)">+10</button>
         <button onClick="buyScroll(1)">Buy scroll</button>
         <button onClick="sellScroll(1)">Sell scroll</button>
+        <button onClick="sellScroll(10)">-10</button>
         <br/>
         Scrolls: <span id="scrolls">0</span>
         <br/>
-        Scroll Price: <span id="scrollPrice">0</span>g +<span id='scrollHigh'>0</span>/<span id='scrollLow'>0</span>
+        Scroll Price: <span id="scrollPrice">0</span>g
         <br/>
         Bias [<span id="scrollBias">0</span>]: <button onClick="b_up()">+</button> <button onClick="b_down()">-</button>
         <br/>
