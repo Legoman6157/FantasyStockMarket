@@ -19,7 +19,6 @@ function hireAdventurer(n) {
     document.getElementById('adventurerCost').innerHTML = nextCost;
 }
 
-
 var scrolls = 0;
 var scrollPrice = 10;
 var scrollBias = 20;
@@ -78,6 +77,8 @@ function priceShift(bias, vol, price) {
         }
     }
 }
+
+//hello
 
 var time = 0;
 
