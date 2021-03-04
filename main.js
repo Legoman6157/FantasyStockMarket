@@ -36,7 +36,7 @@ var swords = new Item("sword", 0, 80, 80, 20);
 //Used as a throw away variable since events may not alway use
 //two stocks
 var blanks = new Item("blank", 0, 0, 0, 0);
-var allItems = [scrolls, swords, blank];
+var allItems = [scrolls, swords, blanks];//
 
 //debug functions to control bias/volatility
 for (item of allItems) {
@@ -110,8 +110,8 @@ function ev(item1, item2, title, text, Vol1, Vol2, jump1, jump2){
 var randEv = new ev();
 var events = [];
 function create_events(){
-  alert("I am an alert box!");
-  create = new ev(Swords, blanks, "Axes in Fashion",
+  alert("Events loaded!");
+  create = new ev(swords, blanks, "Axes in Fashion",
   "After a recent raid by some dashing vikings, people have become smitten with axes."
   , -10, 0, -20, 0
   );
