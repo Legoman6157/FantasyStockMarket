@@ -36,11 +36,11 @@ var swords = new Item("sword", 0, 80, 80, 20);
 //Used as a throw away variable since events may not alway use
 //two stocks
 var blanks = new Item("blank", 0, 0, 0, 0);
-var allItems = [scrolls, swords, blanks];//
+var allItems = [scrolls, swords];//
 
 //debug functions to control bias/volatility
 for (item of allItems) {
-    document.getElementById(item.name + "Bias").innerHTML = item.bias; //lol
+    document.getElementById(item.name + "Bias").innerHTML = item.bias;
     document.getElementById(item.name + "Vol").innerHTML = item.vol;
 }
 
@@ -108,17 +108,19 @@ function ev(item1, item2, title, text, Vol1, Vol2, jump1, jump2){
   this.jump2=jump2
 }
 var randEv = new ev();
-var events = {};
-function create_events(){
-
+var events = [];
+function create_events(events){
+  //var events = [];
   alert("Events loaded!");
   create = new ev(swords, blanks, "Axes in Fashion",
   "After a recent raid by some dashing vikings, people have become smitten with axes."
-  , -10, 0, -20, 0);
+  , 1, 0, -20, 0);
   events.push(create);
 }
-function get_event(){
+function get_event(randEv){
+  var randEv
   randEv=events[Math.floor(Math.random() * events.length)];
+  alert(randEv.title);
   if(randEv.item1.name != "blanks"){
     randEv.item1.vol += randEv.Vol1;
     randEv.item1.bias += randEv.jump1;
@@ -147,8 +149,8 @@ window.setInterval(function() {
             item.price = item.price + priceShift(item.bias, item.vol, item.price);
         }
     }
-    if (time % 12){
-      get_event();
+    if (time % 12 != 0){
+      get_event(randEv);
     }
     for (item of allItems) {
         document.getElementById(item.name + "Price").innerHTML = item.price.toFixed(2);
