@@ -99,7 +99,7 @@ var gamespeed = 500;
 //Event handeling
 function ev(item1, item2, title, text, Vol1, Vol2, jump1, jump2){
   this.item1=item1;
-  thi.item2=item2;
+  this.item2=item2;
   this.Vol1=Vol1;
   this.Vol2=Vol2;
   this.title=title;
