@@ -17,18 +17,38 @@
     <div id="stock-outer-container" class="content" align="center">
       <div id="stock-inner-container" class="content">
         <h1>Stock Options</h1>
-        <button onClick="buyScroll(10)">+10</button>
-        <button onClick="buyScroll(1)">Buy scroll</button>
-        <button onClick="sellScroll(1)">Sell scroll</button>
-        <button onClick="sellScroll(10)">-10</button>
+
+        <!-- Scrolls -->
+        <button onClick="buyItem(10, scroll)">+10</button>
+        <button onClick="buyItem(1, scroll)">Buy scroll</button>
+        <button onClick="sellItem(1, scroll)">Sell scroll</button>
+        <button onClick="sellItem(10, scroll)">-10</button>
         <br/>
-        Scrolls: <span id="scrolls">0</span>
+        Scrolls: <span id="scrollQuantity">0</span>
         <br/>
         Scroll Price: <span id="scrollPrice">0</span>g
         <br/>
-        Bias [<span id="scrollBias">0</span>]: <button onClick="b_up()">+</button> <button onClick="b_down()">-</button>
+        Bias [<span id="scrollBias">0</span>]: <button onClick="b_up(scrolls)">+</button> <button onClick="b_down(scrolls)">-</button>
         <br/>
-        Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up()">+</button> <button onClick="v_down()">-</button>
+        Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up(scrolls)">+</button> <button onClick="v_down(scrolls)">-</button>
+        <br/>
+        <br/>
+
+        <!-- Swords -->
+
+        <button onClick="buyItem(10, sword)">+10</button>
+        <button onClick="buyItem(1, sword)">Buy sword</button>
+        <button onClick="sellItem(1, sword)">Sell sword</button>
+        <button onClick="sellItem(10, sword)">-10</button>
+        <br/>
+        Swords: <span id="swordQuantity">0</span>
+        <br/>
+        Sword Price: <span id="swordPrice">0</span>g
+        <br/>
+        Bias [<span id="swordBias">0</span>]: <button onClick="b_up(swords)">+</button> <button onClick="b_down(swords)">-</button>
+        <br/>
+        Volatility [<span id="swordVol">0</span>]: <button onClick="v_up(swords)">+</button> <button onClick="v_down(swords)">-</button>
+
       </div>
     </div>
     <div id="quest-outer-container" class="content" align="center">

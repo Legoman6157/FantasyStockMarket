@@ -1,5 +1,6 @@
-var gold = 50;
+// Placeholder 'clicker' stuff -------------------------------------------------
 
+var gold = 50;
 function basicClick(n) {
     gold = gold + n;
     document.getElementById("gold").innerHTML = gold;
@@ -12,50 +13,62 @@ function hireAdventurer(n) {
     if (gold >= adventurerCost) {
         adventurers = adventurers + 1;
         gold = gold - adventurerCost;
-        document.getElementById('gold').innerHTML = gold.toFixed(2);
-        document.getElementById('adventurers').innerHTML = adventurers;
+        document.getElementById("gold").innerHTML = gold.toFixed(2);
+        document.getElementById("adventurers").innerHTML = adventurers;
     }
     var nextCost = Math.floor(10 * Math.pow(1.25,adventurers));
-    document.getElementById('adventurerCost').innerHTML = nextCost;
+    document.getElementById("adventurerCost").innerHTML = nextCost;
 }
 
-var scrolls = 0;
-var scrollPrice = 10;
-var scrollBias = 20;
-var scrollVol = 10;
-//scrollVolume? buy too much and tank the price
+// Item handling ---------------------------------------------------------------
 
-document.getElementById('scrollBias').innerHTML = scrollBias;
-document.getElementById('scrollVol').innerHTML = scrollVol;
+function Item(name, quantity, price, bias, vol) {
+    this.name = name;
+    this.quantity = quantity;
+    this.price = price;
+    this.bias = bias;           //Item will trend towards this price value
+    this.vol = vol;             //The +/- value that represents max/min prices
+    //volume?                   //     e.g., bias=50 vol=20, max/min = 70/30
+}
 
-function b_up() {scrollBias = scrollBias + 1; document.getElementById('scrollBias').innerHTML = scrollBias;}
-function b_down() {scrollBias = scrollBias - 1; document.getElementById('scrollBias').innerHTML = scrollBias;}
-function v_up() {scrollVol = scrollVol + 1; document.getElementById('scrollVol').innerHTML = scrollVol;}
-function v_down() {scrollVol = scrollVol - 1; document.getElementById('scrollVol').innerHTML = scrollVol;}
+var scrolls = new Item("scroll", 0, 10, 20, 10);
+var swords = new Item("sword", 0, 80, 80, 20);
+var allItems = [scrolls, swords];
+
+//debug functions to control bias/volatility
+for (item of allItems) {
+    document.getElementById(item.name + "Bias").innerHTML = item.bias; //lol
+    document.getElementById(item.name + "Vol").innerHTML = item.vol;
+}
+
+function b_up(item) {item.bias = item.bias + 1; document.getElementById(item.name + "Bias").innerHTML = item.bias;}
+function b_down(item) {item.bias = item.bias - 1; document.getElementById(item.name + "Bias").innerHTML = item.bias;}
+function v_up(item) {item.vol = item.vol + 1; document.getElementById(item.name + "Vol").innerHTML = item.vol;}
+function v_down(item) {item.vol = item.vol - 1; document.getElementById(item.name + "Vol").innerHTML = item.vol;}
 
 
-function buyScroll(n) {
-    if (gold >= scrollPrice * n) {
-        scrolls = scrolls + n;
-        gold = Number((gold - scrollPrice * n).toFixed(2));
-        document.getElementById('gold').innerHTML = gold;
-        document.getElementById('scrolls').innerHTML = scrolls;
+function buyItem(n, item) {
+    if (gold >= item.price * n) {
+        item.quantity = item.quantity + n;
+        gold = Number((gold - item.price * n).toFixed(2));
+        document.getElementById("gold").innerHTML = gold;
+        document.getElementById(item.name + "Quantity").innerHTML = item.quantity;
     }
 }
 
-function sellScroll(n) {
-    if (scrolls >= n) {
-        scrolls = scrolls - n;
-        gold = Number((gold + scrollPrice * n).toFixed(2));
-        document.getElementById('gold').innerHTML = gold;
-        document.getElementById('scrolls').innerHTML = scrolls;
+function sellItem(n, item) {
+    if (item.quantity >= n) {
+        item.quantity = item.quantity - n;
+        gold = Number((gold + item.price * n).toFixed(2));
+        document.getElementById("gold").innerHTML = gold;
+        document.getElementById(item.name + "Quantity").innerHTML = item.quantity;
     }
 }
 
-//-----------------------------------------------------------------------------
+// Game loop and price modulation-----------------------------------------------
 
 function priceShift(bias, vol, price) {
-    // returns the value of daily movement. E.g. -$15 for the day
+    // Returns the value of daily movement. E.g. -$15 for the day
     // Bias is the 'target' price
     // Vol is the range of prices, stored as absolute value of offset from bias
     // The price can not move more than range/4 (vol/2) per day
@@ -78,23 +91,34 @@ function priceShift(bias, vol, price) {
     }
 }
 
-//hello
-
 var time = 0;
+var gamespeed = 500;
 
 window.setInterval(function() {
+    // This function will run every gamespeed ms. Generally updates the price of
+    // items (as well as the player's money from 'clicker' stuff) and then
+    // draws this to the screen.
+
     time = time + 1;
     basicClick(adventurers);
 
+    //essentially, do a double price update at midnight
     if (time % 24 == 0) {
-        scrollPrice = scrollPrice + priceShift(scrollBias, scrollVol, scrollPrice);
+        for (item of allItems) {
+            item.price = item.price + priceShift(item.bias, item.vol, item.price);
+        }
     }
     if (time % 6 == 0) {
-        scrollPrice = scrollPrice + priceShift(scrollBias, scrollVol, scrollPrice);
+        for (item of allItems) {
+            item.price = item.price + priceShift(item.bias, item.vol, item.price);
+        }
     }
 
-    document.getElementById('scrollPrice').innerHTML = scrollPrice.toFixed(2);
-    document.getElementById('tradingDay').innerHTML = Math.floor(time/24) + 1;
-    document.getElementById('tradingHour').innerHTML = Math.floor(time % 24);
-    document.getElementById('hour').innerHTML = time;
-}, 500);
+    for (item of allItems) {
+        document.getElementById(item.name + "Price").innerHTML = item.price.toFixed(2);
+    }
+
+    document.getElementById("tradingDay").innerHTML = Math.floor(time/24) + 1;
+    document.getElementById("tradingHour").innerHTML = Math.floor(time % 24);
+    document.getElementById("hour").innerHTML = time;
+}, gamespeed);
