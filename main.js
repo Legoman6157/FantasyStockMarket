@@ -108,13 +108,13 @@ function ev(item1, item2, title, text, Vol1, Vol2, jump1, jump2){
   this.jump2=jump2
 }
 var randEv = new ev();
-var events = [];
+var events = {};
 function create_events(){
+
   alert("Events loaded!");
   create = new ev(swords, blanks, "Axes in Fashion",
   "After a recent raid by some dashing vikings, people have become smitten with axes."
-  , -10, 0, -20, 0
-  );
+  , -10, 0, -20, 0);
   events.push(create);
 }
 function get_event(){
