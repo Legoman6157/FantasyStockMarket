@@ -33,7 +33,10 @@ function Item(name, quantity, price, bias, vol) {
 
 var scrolls = new Item("scroll", 0, 10, 20, 10);
 var swords = new Item("sword", 0, 80, 80, 20);
-var allItems = [scrolls, swords];
+//Used as a throw away variable since events may not alway use
+//two stocks
+var blanks = new Item("blank", 0, 0, 0, 0);
+var allItems = [scrolls, swords, blank];
 
 //debug functions to control bias/volatility
 for (item of allItems) {
@@ -93,7 +96,38 @@ function priceShift(bias, vol, price) {
 
 var time = 0;
 var gamespeed = 500;
-
+//Event handeling
+function ev(item1, item2, title, text, Vol1, Vol2, jump1, jump2){
+  this.item1=item1;
+  thi.item2=item2;
+  this.Vol1=Vol1;
+  this.Vol2=Vol2;
+  this.title=title;
+  this.text=text;
+  this.jump2=jump1;
+  this.jump2=jump2
+}
+var randEv = new ev();
+var events = [];
+function create_events(){
+  alert("I am an alert box!");
+  create = new ev(Swords, blanks, "Axes in Fashion",
+  "After a recent raid by some dashing vikings, people have become smitten with axes."
+  , -10, 0, -20, 0
+  );
+  events.push(create);
+}
+function get_event(){
+  randEv=events[Math.floor(Math.random() * events.length)];
+  if(randEv.item1.name != "blanks"){
+    randEv.item1.vol += randEv.Vol1;
+    randEv.item1.bias += randEv.jump1;
+  }
+  if(randEv.item2.name != "blanks"){
+    randEv.item2.vol += randEv.Vol2;
+    randEv.item2.bias += randEv.jump2;
+  }
+}
 window.setInterval(function() {
     // This function will run every gamespeed ms. Generally updates the price of
     // items (as well as the player's money from 'clicker' stuff) and then
@@ -113,7 +147,9 @@ window.setInterval(function() {
             item.price = item.price + priceShift(item.bias, item.vol, item.price);
         }
     }
-
+    if (time % 12){
+      get_event();
+    }
     for (item of allItems) {
         document.getElementById(item.name + "Price").innerHTML = item.price.toFixed(2);
     }
