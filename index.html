@@ -5,6 +5,9 @@
     <link href='https://fonts.googleapis.com/css?family=Beth Ellen' rel='stylesheet'>
 </head>
 <body>
+  <img id="bg-left" src="images/bg-right.png">
+  <img id="bg-right" src="images/bg-right.png">
+  <div id="main-content-container">
     <div id="header">Merchant Sim 1434</div>
     <div id="time-container" class="content">
       Trading Day: <span id="tradingDay">1</span>, <span id="tradingHour">0</span>:00
@@ -19,35 +22,39 @@
         <h1>Stock Options</h1>
 
         <!-- Scrolls -->
-        <button onClick="buyItem(10, scrolls)">+10</button>
-        <button onClick="buyItem(1, scrolls)">Buy scroll</button>
-        <button onClick="sellItem(1, scrolls)">Sell scroll</button>
-        <button onClick="sellItem(10, scrolls)">-10</button>
-        <br/>
-        Scrolls: <span id="scrollQuantity">0</span>
-        <br/>
-        Scroll Price: <span id="scrollPrice">0</span>g
-        <br/>
-        Bias [<span id="scrollBias">0</span>]: <button onClick="b_up(scrolls)">+</button> <button onClick="b_down(scrolls)">-</button>
-        <br/>
-        Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up(scrolls)">+</button> <button onClick="v_down(scrolls)">-</button>
-        <br/>
-        <br/>
+        <div class="stock-option-container">
+          <h3>Scrolls</h3>
+          <button onClick="buyItem(10, scrolls)">+10</button>
+          <button onClick="buyItem(1, scrolls)">Buy scroll</button>
+          <button onClick="sellItem(1, scrolls)">Sell scroll</button>
+          <button onClick="sellItem(10, scrolls)">-10</button>
+          <br/>
+          Scrolls: <span id="scrollQuantity">0</span>
+          <br/>
+          Scroll Price: <span id="scrollPrice">0</span>g
+          <br/>
+          Bias [<span id="scrollBias">0</span>]: <button onClick="b_up(scrolls)">+</button> <button onClick="b_down(scrolls)">-</button>
+          <br/>
+          Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up(scrolls)">+</button> <button onClick="v_down(scrolls)">-</button>
+        </div>
 
         <!-- Swords -->
 
-        <button onClick="buyItem(10, swords)">+10</button>
-        <button onClick="buyItem(1, swords)">Buy sword</button>
-        <button onClick="sellItem(1, swords)">Sell sword</button>
-        <button onClick="sellItem(10, swords)">-10</button>
-        <br/>
-        Swords: <span id="swordQuantity">0</span>
-        <br/>
-        Sword Price: <span id="swordPrice">0</span>g
-        <br/>
-        Bias [<span id="swordBias">0</span>]: <button onClick="b_up(swords)">+</button> <button onClick="b_down(swords)">-</button>
-        <br/>
-        Volatility [<span id="swordVol">0</span>]: <button onClick="v_up(swords)">+</button> <button onClick="v_down(swords)">-</button>
+        <div class="stock-option-container">
+          <h3>Swords</h3>
+          <button onClick="buyItem(10, swords)">+10</button>
+          <button onClick="buyItem(1, swords)">Buy sword</button>
+          <button onClick="sellItem(1, swords)">Sell sword</button>
+          <button onClick="sellItem(10, swords)">-10</button>
+          <br/>
+          Swords: <span id="swordQuantity">0</span>
+          <br/>
+          Sword Price: <span id="swordPrice">0</span>g
+          <br/>
+          Bias [<span id="swordBias">0</span>]: <button onClick="b_up(swords)">+</button> <button onClick="b_down(swords)">-</button>
+          <br/>
+          Volatility [<span id="swordVol">0</span>]: <button onClick="v_up(swords)">+</button> <button onClick="v_down(swords)">-</button>
+        </div>
 
       </div>
     </div>
@@ -59,6 +66,7 @@
         Adventurers: <span id="adventurers">0</span>
       </div>
     </div>
-    <script type="text/javascript" src="main.js"></script>
+  </div>
+  <!-- <script type="text/javascript" src="main.js"></script> -->
 </body>
 </html
