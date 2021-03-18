@@ -53,6 +53,10 @@ function v_down(item) {item.vol = item.vol - 1; document.getElementById(item.nam
 
 
 function buyItem(n, item) {
+    if (gold < item.price * n) {
+        n = Math.trunc(gold/item.price);
+        console.log(n);
+    }
     if (gold >= item.price * n) {
         for (i = 0; i < n; i++) {
             item.shares.push(item.price) //push prices into purchase history.
@@ -69,6 +73,9 @@ function buyItem(n, item) {
 }
 
 function sellItem(n, item) {
+    if (n > item.shares.length) {
+        n = item.shares.length;
+    }
     if (item.shares.length >= n) {
         for (i = 0; i < n; i++) {
             item.total_cost -= item.shares.shift(item.price) //pop oldest price from front
@@ -77,7 +84,7 @@ function sellItem(n, item) {
 
         // Update the page
         document.getElementById("gold").innerHTML = gold;
-        document.getElementById(item.name + "Quantity").innerHTML = item.shares.length;
+        document.getElementById(item.name + "Quantity").innerHTML = item.shares.length();
         if (item.shares.length > 0) {
             document.getElementById(item.name + "AverageCost").innerHTML = (item.total_cost / item.shares.length).toFixed(2)
         } else {
