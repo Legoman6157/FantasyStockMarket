@@ -20,21 +20,45 @@ function hireAdventurer(n) {
     document.getElementById("adventurerCost").innerHTML = nextCost;
 }
 
+// Quest system prototype ------------------------------------------------------
+
+var allQuests = [
+	{
+		cooldown: 	30,
+		chance:		1,
+		cost:		0,
+		reward:		10
+	},
+	{
+		cooldown:	90,
+		chance:		0.5,
+		cost: 		250,
+		reward:		600
+	}
+];
+
+function doQuest(qID) {
+	var quest = allQuests[qID];
+
+}
+
 // Item handling ---------------------------------------------------------------
 
-function Item(name, price, bias, vol) {
-    this.name = name;
-    this.price = price;
-    this.bias = bias;       //Item will trend towards this price value
-    this.vol = vol;         //The +/- value that represents max/min price fluctuation
+class Item {
+    constructor(name, price, bias, vol, unlocked=true) {
+        this.name = name;
+        this.price = price;
+        this.bias = bias;		//Item will trend towards this price value
+        this.vol = vol;			//The +/- value that represents max/min price fluctuation
 
-    this.total_cost = 0;    //a running sum of the total amount spent: the sum of all
-                            //  elemments in this.shares
-    this.shares = [];       //an array that stores a history of purchases. the length is quantity owned
-                            //  organized as a queue, use push() to add purchases
-                            //  to the history, and shift() to remove from front
-                            //
+        this.total_cost = 0;	//a running sum of the total amount spent: the sum of all
+								//  elemments in this.shares
+        this.shares = []; 		//an array that stores a history of purchases. the length is quantity owned
+								//  organized as a queue, use push() to add purchases
+								//  to the history, and shift() to remove from front
+    }
 }
+
 
 var scrolls = new Item("scroll", 10, 20, 10);
 var swords = new Item("sword", 80, 80, 20);
