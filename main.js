@@ -119,6 +119,34 @@ function priceShift(bias, vol, price) {
     }
 }
 
+// Tab functions ---------------------------------------------------------------
+
+$(document).ready(function() {
+  $("#stock-tab").click(function() {
+    if ($("#stock-tab").hasClass("inactive-tab")) {
+      $("#quest-outer-container").hide();
+      $("#stock-outer-container").show();
+      swapActiveTab();
+    }
+  })
+  $("#quest-tab").click(function() {
+    if ($("#quest-tab").hasClass("inactive-tab")) {
+      $("#stock-outer-container").hide();
+      $("#quest-outer-container").show();
+      swapActiveTab();
+    }
+  })
+});
+
+function swapActiveTab() {
+  $("#stock-tab").toggleClass("active-tab");
+  $("#stock-tab").toggleClass("inactive-tab");
+  $("#quest-tab").toggleClass("active-tab");
+  $("#quest-tab").toggleClass("inactive-tab");
+}
+
+// End of tab functions --------------------------------------------------------
+
 var time = 0;
 var gamespeed = 500;
 

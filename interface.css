@@ -1,18 +1,51 @@
 body {
-  margin-top: 4%;
-  margin-left: 15%;
-  margin-right: 15%;
-  background-image: url('images/scroll.png');
-  background-position: top;
-  background-size: 100%;
+  margin: 0;
   font-family: Georgia;
 }
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: solid black 1px;
+}
+#pseudo-image {
+  position: absolute;
+  z-index: 0;
+}
+#bg-left {
+  float: left;
+  width: 20%;
+  z-index: 1;
+  position: relative;
+}
+#main-content-container {
+  width: 100%;
+  height: 1550px;
+  background-image: url('images/scroll-5.png');
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center 0;
+  z-index: 2;
+  position: absolute;
+}
+#info-container {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+#bg-right {
+  float: right;
+  width: 20%;
+  z-index: 1;
+  position: relative;
+}
 #header {
-font-family: 'Beth Ellen', Georgia;
+  width: 100%;
+  font-family: 'Beth Ellen', Georgia;
   font-size: 40pt;
   text-align: center;
   color: black;
-  padding-bottom: 11%;
+  padding: 3% 0 5% 0;
+  z-index: 3;
 }
 .content {
   font-size: 15pt;
@@ -21,35 +54,70 @@ font-family: 'Beth Ellen', Georgia;
   width: 100%;
   text-align: center;
 }
+#money-container {
+  width: 100%;
+  text-align: center;
+}
+#tab-container {
+  width: 90%;
+  float: none;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.active-tab {
+  background: rgba(173, 106, 5, .5);
+}
+.inactive-tab {
+  background: rgba(98, 60, 4, .5);
+}
 #stock-outer-container {
-  float: left;
-  width: 50%;
+  width: 100%;
+  height: 40%;
+}
+#stock-outer-container h1 {
+  margin: 0;
 }
 #stock-inner-container {
-  /* float: center; */
   text-align: center;
-  border-left: solid black 1px;
-  border-right: solid black 1px;
+  border: solid black 1px;
   width: 90%;
   height: 100%;
   padding: 0;
   margin: 0;
 }
+.stock-option-container {
+  border: 1px solid black;
+  background: rgba(223, 136, 7, .5);
+  margin: 10px;
+  padding: 5px;
+}
+.stock-option-container h3, #quest-outer-container h3 {
+  margin: 5px;
+}
+.stock-option-container button, #quest-inner-container button {
+  background: none;
+}
+.stock-option-container:hover {
+  background: rgba(198, 121, 6, .5);
+}
+.stock-option-container button:hover, #quest-outer-container button:hover {
+    background: rgba(123, 76, 4, .5);
+}
+.stock-option-container button:active, #quest-inner-container button:active {
+  background: rgba(99, 61, 3, .5);
+}
 #quest-outer-container {
-  float: right;
-  width: 50%;
+  display: none;
+  width: 100%;
+  height: 40%;
+}
+#quest-outer-container h1 {
+  margin-top: 0;
 }
 #quest-inner-container {
-  /* float: right; */
   text-align: center;
-  border-left: solid black 1px;
-  border-right: solid black 1px;
+  border: solid black 1px;
   width: 90%;
   height: 100%;
-}
-button {
-  font-family: inherit;
-  font-size: inherit;
-  background: none;
-  border: solid black 1px;
 }

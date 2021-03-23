@@ -9,17 +9,22 @@
   <img id="bg-right" src="images/bg-right.png">
   <div id="main-content-container">
     <div id="header">Merchant Sim 1434</div>
-    <div id="time-container" class="content">
-      Trading Day: <span id="tradingDay">1</span>, <span id="tradingHour">0</span>:00
-      &nbsp;
-      Time: <span id='hour'>0</span>
-    </div>
-    <div id="money-container" class="content">
-      Gold: <span id="gold">0</span>g
-    </div>
-    <div id="stock-outer-container" class="content" align="center">
-      <div id="stock-inner-container" class="content">
-        <h1>Stock Options</h1>
+    <div id="info-container">
+      <div id="time-container" class="content">
+        Trading Day: <span id="tradingDay">1</span>, <span id="tradingHour">0</span>:00
+        &nbsp;
+        Time: <span id='hour'>0</span>
+      </div>
+      <div id="money-container" class="content">
+        Gold: <span id="gold">0</span>g
+      </div>
+      <div id="tab-container">
+        <button id="stock-tab" class="active-tab">Stocks</button><!--Padding protect
+        --><button id="quest-tab" class="inactive-tab">Quests</button>
+      </div>
+      <div id="stock-outer-container" class="content" align="center">
+        <div id="stock-inner-container" class="content">
+          <h1>Stock Options</h1>
 
         <!-- Scrolls -->
         <div class="stock-option-container">
@@ -32,7 +37,7 @@
           Scrolls: <span id="scrollQuantity">0</span>
           <br/>
           Scroll Price: <span id="scrollPrice">0</span>g
-          <div id="scroll-position-container" style="display: inline" style="visibility: hidden">
+          <div id="scroll-position-container" style="display: inline" >
             <br/>
             Average Cost: <span id="scrollAverageCost">0</span>g
             <br/>
@@ -45,7 +50,7 @@
           Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up(scrolls)">+</button> <button onClick="v_down(scrolls)">-</button>
         </div>
 
-        <!-- Swords -->
+          <!-- Swords -->
 
         <div class="stock-option-container">
           <h3>Swords</h3>
@@ -70,17 +75,19 @@
           Volatility [<span id="swordVol">0</span>]: <button onClick="v_up(swords)">+</button> <button onClick="v_down(swords)">-</button>
         </div>
 
+        </div>
       </div>
-    </div>
-    <div id="quest-outer-container" class="content" align="center">
-      <div id="quest-inner-container" class="content">
-        <h1>Quests</h3>
-        <button onClick="basicClick(1)">Go on quest</button>
-        <button onClick="hireAdventurer(1)">Hire adventurer - <span id="adventurerCost">10</span>g</button>
-        Adventurers: <span id="adventurers">0</span>
+      <div id="quest-outer-container" class="content" align="center">
+        <div id="quest-inner-container" class="content">
+          <h1>Quests</h3>
+          <button onClick="basicClick(1)">Go on quest</button>
+          <button onClick="hireAdventurer(1)">Hire adventurer - <span id="adventurerCost">10</span>g</button>
+          Adventurers: <span id="adventurers">0</span>
+        </div>
       </div>
     </div>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </body>
 </html
