@@ -38,6 +38,7 @@ function Item(name, price, bias, vol) {
 
 var scrolls = new Item("scroll", 10, 20, 10);
 var swords = new Item("sword", 80, 80, 20);
+var blanks =new Item("blanks", 0, 0, 0);
 var allItems = [scrolls, swords];
 
 //debug functions to control bias/volatility
@@ -169,7 +170,7 @@ window.setInterval(function() {
     // This function will run every 'gamespeed' ms. Generally updates the price of
     // items (as well as the player's money from 'clicker' stuff) and then
     // draws this to the screen.
-
+    var randEv = new ev()
     time = time + 1;
     basicClick(adventurers);
 
