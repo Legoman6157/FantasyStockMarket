@@ -92,6 +92,49 @@ function sellItem(n, item) {
         }
     }
 }
+function ev(item1, item2, title, text, Vol1, Vol2, jump1, jump2){
+  this.item1=item1;
+  this.item2=item2;
+  this.Vol1=Vol1;
+  this.Vol2=Vol2;
+  this.title=title;
+  this.text=text;
+  this.jump1=jump1;
+  this.jump2=jump2
+}
+var randEv = new ev();
+var events = [];
+var kings = [];
+function king(name, description, typeUp, typeDown){
+  this.name = name;
+  this.description = description;
+  this.typeUp = typeUp;
+  this.typeDown = typeDown;
+}
+
+
+function get_event(randEv){
+  var randEv = new ev();
+  randEv=events[Math.floor(Math.random() * events.length)];
+  //alert(randEv.title);
+  if(randEv.item1.name != "blanks"){
+    randEv.item1.vol += randEv.Vol1;
+    randEv.item1.bias += randEv.jump1;
+    //randEv.item1.price +=randEv.jump1;
+  }
+  if(randEv.item2.name != "blanks"){
+    randEv.item2.vol += randEv.Vol2;
+    randEv.item2.bias += randEv.jump2;
+  }
+}
+function create_events(){
+  //var events = [];
+  alert("Events loaded!");
+  create = new ev(swords, blanks, "Axes in Fashion",
+  "After a recent raid by some dashing vikings, people have become smitten with axes."
+  , 10, 0, -20, 0);
+  events.push(create);
+}
 
 // Game loop and price modulation-----------------------------------------------
 
