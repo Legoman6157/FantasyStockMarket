@@ -184,6 +184,9 @@ window.setInterval(function() {
             item.price = item.price + priceShift(item.bias, item.vol, item.price);
         }
     }
+    if (time % 36 == 0){
+      get_event(randEv);
+    }
 
     // Calculate and update the price, average cost, total return values.
     // only show average cost/total return if you actually own the item
