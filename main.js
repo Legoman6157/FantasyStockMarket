@@ -193,6 +193,8 @@ window.setInterval(function() {
     for (item of allItems) {
 
         document.getElementById(item.name + "Price").innerHTML = item.price.toFixed(2);
+        document.getElementById(item.name + "Bias").innerHTML = item.bias.toFixed(2);
+        document.getElementById(item.name + "Vol").innerHTML = item.vol.toFixed(2);
         if (item.shares.length > 0) {
             document.getElementById(item.name + "-position-container").style.visibility="visible";
 
