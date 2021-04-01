@@ -69,6 +69,28 @@
           <br/>
           Volatility [<span id="swordVol">0</span>]: <button onClick="v_up(swords)">+</button> <button onClick="v_down(swords)">-</button>
         </div>
+        <div class="stock-option-container">
+          <h3>Axes</h3>
+          <button onClick="buyItem(10, axes)">+10</button>
+          <button onClick="buyItem(1, axes)">Buy axe</button>
+          <button onClick="sellItem(1, axes)">Sell axe</button>
+          <button onClick="sellItem(10, axes)">-10</button>
+          <br/>
+          Axes: <span id="axeQuantity">0</span>
+          <br/>
+          Axe Price: <span id="axePrice">0</span>g
+          <div id="axe-position-container" style="display: inline" style="visibility: hidden">
+            <br/>
+            Average Cost: <span id="axeAverageCost">0</span>g
+            <br/>
+            <!-- lord help me what is the correct way to do this -->
+            Total Return: <span id="axeTotalReturnColor"><span id="axeTotalReturnSign">+</span><span id="axeTotalReturn">0</span>g</span>
+          </div>
+          <br/>
+          Bias [<span id="axeBias">0</span>]: <button onClick="b_up(axes)">+</button> <button onClick="b_down(axes)">-</button>
+          <br/>
+          Volatility [<span id="axeVol">0</span>]: <button onClick="v_up(axes)">+</button> <button onClick="v_down(axes)">-</button>
+        </div>
 
       </div>
     </div>
@@ -81,6 +103,8 @@
       </div>
     </div>
   </div>
+  <!--<script type="text/javascript" src="Kings.js"></script>-->
+  <!--<script type="text/javascript" src="Events.js"></script>-->
   <script type="text/javascript" src="main.js"></script>
 </body>
 </html

@@ -38,8 +38,26 @@ function Item(name, price, bias, vol) {
 
 var scrolls = new Item("scroll", 10, 20, 10);
 var swords = new Item("sword", 80, 80, 20);
+var axes = new Item("axe", 50, 50, 30);
+var shields = new Item("shield", 30, 30, 10);
+var grain = new Item("grain", 15, 12, 5);
+var livestock = new Item("livestock", 17, 20, 20);
+var wine = new Item("wine", 100, 90, 25);
+var crystals = new Item("crystal", 90, 90, 20);
+var dragon_scales = new Item("dragon scales", 150, 200, 45);
+var scepters = new Item("scepter", 75, 80, 30);
+var tomes = new Item("tome", 40, 40, 10);
+var troll_teeth = new Item("troll teeth", 25, 40, 17);
+var goblin_hide = new Item("goblin hide", 10, 10, 10);
+var rum = new Item("rum", 20, 30, 10);
+var cyclops_eyes = new Item("cyclops eye", 80, 80, 20);
+var unicorn_horn = new Item("unicorn horn", 120, 110, 30);
+var pheonix_ash = new Item("sword", 200, 200, 50);
 var blanks =new Item("blanks", 0, 0, 0);
-var allItems = [scrolls, swords];
+var allItems = [scrolls, swords, axes, shields, grain, livestock
+, wine, crystals, dragon_scales, scepters, tomes, troll_teeth
+, goblin_hide, rum, cyclops_eyes, unicorn_horn, pheonix_ash,];
+
 
 //debug functions to control bias/volatility
 for (item of allItems) {
@@ -106,6 +124,10 @@ function ev(item1, item2, title, text, Vol1, Vol2, jump1, jump2){
 var randEv = new ev();
 var events = [];
 var kings = [];
+var candidates =[];
+var currKing = new king("King Neutralitus III",
+"A king who cares little for the kingdoms economic affairs.", null, null);
+
 function king(name, description, typeUp, typeDown){
   this.name = name;
   this.description = description;
@@ -113,14 +135,31 @@ function king(name, description, typeUp, typeDown){
   this.typeDown = typeDown;
 }
 
+function create_kings(){
+  //var events = [];
+  alert("Kings loaded!");
+  create = new king("Queen Audra II",
+  "A sorcerrer's apprentence", magic, war);
+  kings.push(create);
+}
 
 function get_event(randEv){
   var randEv = new ev();
   randEv=events[Math.floor(Math.random() * events.length)];
   //alert(randEv.title);
   if(randEv.item1.name != "blanks"){
-    randEv.item1.vol += randEv.Vol1;
-    randEv.item1.bias += randEv.jump1;
+    if(randEv.item1.vol + randEv.Vol1<1){
+      randEv.item1.vol = 1;
+    }
+    else{
+      randEv.item1.vol += randEv.Vol1;
+    }
+    if(randEv.item1.bias + randEv.jump1<10){
+      randEv.item1.bias = 10;
+    }
+    else{
+      randEv.item1.bias += randEv.jump1;
+    }
     //randEv.item1.price +=randEv.jump1;
   }
   if(randEv.item2.name != "blanks"){
