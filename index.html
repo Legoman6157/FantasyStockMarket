@@ -91,6 +91,50 @@
           <br/>
           Volatility [<span id="axeVol">0</span>]: <button onClick="v_up(axes)">+</button> <button onClick="v_down(axes)">-</button>
         </div>
+        <div class="stock-option-container">
+            <h3>Shields</h3>
+            <button onClick="buyItem(10, shields)">+10</button>
+            <button onClick="buyItem(1, shields)">Buy shield</button>
+            <button onClick="sellItem(1, shields)">Sell shield</button>
+            <button onClick="sellItem(10, shields)">-10</button>
+            <br/>
+            Shields: <span id="shieldQuantity">0</span>
+            <br/>
+            Shield Price: <span id="shieldPrice">0</span>g
+            <div id="shield-position-container" style="display: inline" style="visibility: hidden">
+              <br/>
+              Average Cost: <span id="shieldAverageCost">0</span>g
+              <br/>
+              <!-- lord help me what is the correct way to do this -->
+              Total Return: <span id="shieldTotalReturnColor"><span id="shieldTotalReturnSign">+</span><span id="shieldTotalReturn">0</span>g</span>
+            </div>
+            <br/>
+            Bias [<span id="shieldBias">0</span>]: <button onClick="b_up(shields)">+</button> <button onClick="b_down(shields)">-</button>
+            <br/>
+            Volatility [<span id="shieldVol">0</span>]: <button onClick="v_up(shields)">+</button> <button onClick="v_down(shields)">-</button>
+        </div>
+        <div class="stock-option-container">
+            <h3>Crystals</h3>
+            <button onClick="buyItem(10, crystals)">+10</button>
+            <button onClick="buyItem(1, crystals)">Buy crystal</button>
+            <button onClick="sellItem(1, crystals)">Sell crystal</button>
+            <button onClick="sellItem(10, crystals)">-10</button>
+            <br/>
+            Crystals: <span id="crystalQuantity">0</span>
+            <br/>
+            Crystal Price: <span id="crystalPrice">0</span>g
+            <div id="crystal-position-container" style="display: inline" style="visibility: hidden">
+            <br/>
+            Average Cost: <span id="crystalAverageCost">0</span>g
+            <br/>
+            <!-- lord help me what is the correct way to do this -->
+            Total Return: <span id="crystalTotalReturnColor"><span id="crystalTotalReturnSign">+</span><span id="crystalTotalReturn">0</span>g</span>
+            </div>
+            <br/>
+            Bias [<span id="crystalBias">0</span>]: <button onClick="b_up(crystals)">+</button> <button onClick="b_down(crystals)">-</button>
+            <br/>
+            Volatility [<span id="crystalVol">0</span>]: <button onClick="v_up(crystals)">+</button> <button onClick="v_down(crystals)">-</button>
+          </div>
 
       </div>
     </div>
