@@ -167,25 +167,48 @@ function priceShift(bias, vol, price) {
 $(document).ready(function() {
   $("#stock-tab").click(function() {
     if ($("#stock-tab").hasClass("inactive-tab")) {
-      $("#quest-outer-container").hide();
       $("#stock-outer-container").show();
-      swapActiveTab();
+      $("#quest-outer-container").hide();
+      $("#king-outer-container").hide();
+      setActiveTab("#stock-tab");
     }
   })
   $("#quest-tab").click(function() {
     if ($("#quest-tab").hasClass("inactive-tab")) {
       $("#stock-outer-container").hide();
       $("#quest-outer-container").show();
-      swapActiveTab();
+      $("#king-outer-container").hide();
+      setActiveTab("#quest-tab");
+    }
+  })
+  $("#king-tab").click(function() {
+    if ($("#king-tab").hasClass("inactive-tab")) {
+      $("#stock-outer-container").hide();
+      $("#quest-outer-container").hide();
+      $("#king-outer-container").show();
+      setActiveTab("#king-tab");
     }
   })
 });
 
-function swapActiveTab() {
-  $("#stock-tab").toggleClass("active-tab");
-  $("#stock-tab").toggleClass("inactive-tab");
-  $("#quest-tab").toggleClass("active-tab");
-  $("#quest-tab").toggleClass("inactive-tab");
+function setActiveTab(activeTabID) {
+  if ($("#stock-tab").hasClass("active-tab")) {
+    $("#stock-tab").removeClass("active-tab");
+    $("#stock-tab").addClass("inactive-tab");
+  }
+
+  if ($("#quest-tab").hasClass("active-tab")) {
+    $("#quest-tab").removeClass("active-tab");
+    $("#quest-tab").addClass("inactive-tab");
+  }
+
+  if ($("#king-tab").hasClass("active-tab")) {
+    $("#king-tab").removeClass("active-tab");
+    $("#king-tab").addClass("inactive-tab");
+  }
+
+  $(activeTabID).removeClass("inactive-tab");
+  $(activeTabID).addClass("active-tab");
 }
 
 // End of tab functions --------------------------------------------------------
