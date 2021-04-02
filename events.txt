@@ -1,0 +1,21 @@
+Here's a bunch of events to be read into the event array.  I just wrote them as the actual events themselves and will probably add this to the code later.
+
+ev1 = new ev(swords, axes, "War declared!", "A neighboring kingdom has declared war on our noble nation, causing many to buy weapons.", 10, 10, 20, 20);
+ev2 = new ev(swords, shields, "Invasion!", "Our kingdom has been invaded! Invest in swords and shields to protect yourself!", 5, 5, 15, 20);
+ev3 = new ev(wine, rum, "Celebration!", "A celebration is taking place soon, and many are buying alcohol.  Invest!", 5, 5, 25, 25);
+ev4 = new ev(grain, blanks, "Drought", "Our land has not received rainfall since the last full moon, causing the crops to grow less.", 20, 0, -25, 0);
+ev5 = new ev(crystals, blanks, "Eureka!", "Explorers have discovered a foreign land trading thousands of crystals!", 15, 0, 15, 0);
+ev6 = new ev(crystals, blanks, "Tariff", "Our traders have placed a tariff on exported crystals, causing less of them to be shipped to our nation.", 15, 0, -15, 0);
+ev7 = new ev(dragonScales, blanks, "Save the dragons!", "Activists have insisted that people stop killing dragons for their scales.", 5, 0, -5, 0);
+ev8 = new ev(unicornHorns, blanks, "Save the unicorns!", "Activists have insisted that people stop killing unicorns for their horns.", 5, 0, -5, 0);
+ev9 = new ev(tomes, blanks, "Tomes in fashion!", "I'm not quite sure what a tome is, but a lot of people seem to be buying them right now! Invest!", 10, 0, 10, 0);
+ev10 = new ev(cyclopsEyes, blanks, "Cyclops island discovered!", "An island inhabited by cyclopses has been discovered and pillaged, leading to a surplus in cyclops eyes.", 10, 0, 5, 0);
+ev11 = new ev(leather, blanks, "Leather in fashion!", "Many people are buying leather as a new fashion trend.", 10, 0, 10, 0);
+ev12 = new ev(leather, blanks, "Leather out of fashion!", "People have seemed to lose interest in leather. Expect stocks to fall.", 10, 0, -5, 0);
+ev13 = new ev(pegasusFeathers, blanks, "Feathers in fashion!", "People have begun wearing pegasus feathers in their hair as a good luck charm! Invest!", 8, 0, 6, 0);
+ev14 = new ev(scepters, blanks, "A surplus in scepters!", "There seems to be a huge interest in scepters recently! Expect stocks to raise!", 5, 0, 7, 0);
+ev15 = new ev(phoenixAsh, blanks, "Ash everywhere!", "It is phoenix season, and their ash is going in fashion!", 7, 0, 27, 0);
+ev16 = new ev(trollTeeth, blanks, "Trolled!", "Troll teeth are going out of fashion.", 5, 0, -10, 0);
+ev17 = new ev(goblinHide, blanks, "Hides in fashion!", "People have become increasingly impressed with goblin hides, causing prices to increase!", 5, 0, 3, 0);
+
+I will add more later.
