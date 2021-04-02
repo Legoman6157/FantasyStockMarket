@@ -169,7 +169,7 @@ $(document).ready(function() {
     if ($("#stock-tab").hasClass("inactive-tab")) {
       $("#stock-outer-container").show();
       $("#quest-outer-container").hide();
-      $("#king-outer-container").hide();
+      $("#monarch-outer-container").hide();
       setActiveTab("#stock-tab");
     }
   })
@@ -177,16 +177,18 @@ $(document).ready(function() {
     if ($("#quest-tab").hasClass("inactive-tab")) {
       $("#stock-outer-container").hide();
       $("#quest-outer-container").show();
-      $("#king-outer-container").hide();
+      $("#monarch-outer-container").hide();
       setActiveTab("#quest-tab");
+      console.log("Switching to quest tab");
     }
   })
-  $("#king-tab").click(function() {
-    if ($("#king-tab").hasClass("inactive-tab")) {
+  $("#monarch-tab").click(function() {
+    if ($("#monarch-tab").hasClass("inactive-tab")) {
       $("#stock-outer-container").hide();
       $("#quest-outer-container").hide();
-      $("#king-outer-container").show();
-      setActiveTab("#king-tab");
+      $("#monarch-outer-container").show();
+      setActiveTab("#monarch-tab");
+      console.log("Switching to monarch tab");
     }
   })
 });
@@ -202,9 +204,9 @@ function setActiveTab(activeTabID) {
     $("#quest-tab").addClass("inactive-tab");
   }
 
-  if ($("#king-tab").hasClass("active-tab")) {
-    $("#king-tab").removeClass("active-tab");
-    $("#king-tab").addClass("inactive-tab");
+  if ($("#monarch-tab").hasClass("active-tab")) {
+    $("#monarch-tab").removeClass("active-tab");
+    $("#monarch-tab").addClass("inactive-tab");
   }
 
   $(activeTabID).removeClass("inactive-tab");
