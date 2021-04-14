@@ -45,25 +45,22 @@ var leather = new Item("leather", 12, 12, 5);
 var livestock = new Item("livestock", 17, 20, 20);
 var wine = new Item("wine", 100, 90, 25);
 var crystals = new Item("crystal", 90, 90, 20);
-var dragon_scales = new Item("dragon scales", 150, 200, 45);
+var dragon_scales = new Item("dragon_scale", 150, 200, 45);
 var scepters = new Item("scepter", 75, 80, 30);
 var tomes = new Item("tome", 40, 40, 10);
-var troll_teeth = new Item("troll teeth", 25, 40, 17);
-var goblin_hide = new Item("goblin hide", 10, 10, 10);
+var troll_teeth = new Item("troll_teeth", 25, 40, 17);
+var goblin_hide = new Item("goblin_hide", 10, 10, 10);
 var rum = new Item("rum", 20, 30, 10);
-var cyclops_eyes = new Item("cyclops eye", 80, 80, 20);
-var unicorn_horn = new Item("unicorn horn", 120, 110, 30);
-var phoenix_ash = new Item("phoenix ash", 200, 200, 50);
+var cyclops_eyes = new Item("cyclops_eye", 80, 80, 20);
+var unicorn_horn = new Item("unicorn_horn", 120, 110, 30);
+var phoenix_ash = new Item("phoenix_ash", 200, 200, 50);
 var blanks =new Item("blanks", 0, 0, 0);
-var allItems = [scrolls, swords, axes, shields, grain, leather, livestock,
- wine, crystals, dragon_scales, scepters, tomes, troll_teeth,
- goblin_hide, rum, cyclops_eyes, unicorn_horn, phoenix_ash];
-var war =[swords, axes, shields];
-var magic = [scrolls, crystals, scepters, tomes];
-var goods = [grain, livestock, leather, wine, rum];
-var monster_parts = [dragon_scales, troll_teeth, cyclops_eyes,
-goblin_hide, unicorn_horn, phoenix_ash];
-
+var allItems = [scrolls, swords, wine, dragon_scales];
+var war =[swords];
+var magic = [scrolls];
+var goods = [wine];
+var monster_parts = [dragon_scales];
+//, grain, leather, livestock, wine, crystals, dragon_scales, scepters, tomes, troll_teeth, goblin_hide, rum, cyclops_eyes, unicorn_horn, phoenix_ash
 //debug functions to control bias/volatility
 //for (item of allItems) {
   //  document.getElementById(item.name + "Bias").innerHTML = item.bias; //lol
@@ -210,45 +207,47 @@ function get_event(randEv){
   }
 }
 function create_events(){
-  var events = [];
+  //var events = [];
   alert("Events loaded!");
   create = new ev(swords, blanks, "Axes in Fashion",
   "After a recent raid by some dashing vikings, people have become smitten with axes."
   , 10, 0, -20, 0);
-  ev1 = new ev(swords, axes, "War declared!", "A neighboring kingdom has declared war on our noble nation, causing many to buy weapons.", 10, 10, 20, 20);
-  ev2 = new ev(swords, shields, "Invasion!", "Our kingdom has been invaded! Invest in swords and shields to protect yourself!", 5, 5, 15, 20);
-  ev4 = new ev(grain, blanks, "Drought", "Our land has not received rainfall since the last full moon, causing the crops to grow less.", 20, 0, -25, 0);
-  ev5 = new ev(crystals, blanks, "Eureka!", "Explorers have discovered a foreign land trading thousands of crystals!", 15, 0, 15, 0);
-  ev6 = new ev(crystals, blanks, "Tariff", "Our traders have placed a tariff on exported crystals, causing less of them to be shipped to our nation.", 15, 0, -15, 0);
-  ev7 = new ev(dragon_scales, blanks, "Save the dragons!", "Activists have insisted that people stop killing dragons for their scales.", 5, 0, -5, 0);
-  ev8 = new ev(unicorn_horn, blanks, "Save the unicorns!", "Activists have insisted that people stop killing unicorns for their horns.", 5, 0, -5, 0);
-  ev9 = new ev(tomes, blanks, "Tomes in fashion!", "I'm not quite sure what a tome is, but a lot of people seem to be buying them right now! Invest!", 10, 0, 10, 0);
-  ev10 = new ev(cyclops_eyes, blanks, "Cyclops island discovered!", "An island inhabited by cyclopses has been discovered and pillaged, leading to a surplus in cyclops eyes.", 10, 0, 5, 0);
-  ev11 = new ev(leather, blanks, "Leather in fashion!", "Many people are buying leather as a new fashion trend.", 10, 0, 10, 0);
-  ev12 = new ev(leather, blanks, "Leather out of fashion!", "People have seemed to lose interest in leather. Expect stocks to fall.", 10, 0, -5, 0);
+  ev1 = new ev(wine, blanks, "Celebration!", "The royal family has blessed us with a new child. The kindom dinks in merryment!", 10, 0, 20, 0)
+  ev2 = new ev(scrolls, blanks, "Magical Interests!", "Many in the kingdom have taken up an interest in novice magic.", 40, 0, 30, 0)
+  //ev1 = new ev(swords, axes, "War declared!", "A neighboring kingdom has declared war on our noble nation, causing many to buy weapons.", 10, 10, 20, 20);
+  //ev2 = new ev(swords, shields, "Invasion!", "Our kingdom has been invaded! Invest in swords and shields to protect yourself!", 5, 5, 15, 20);
+  //ev4 = new ev(grain, blanks, "Drought", "Our land has not received rainfall since the last full moon, causing the crops to grow less.", 20, 0, -25, 0);
+  //ev5 = new ev(crystals, blanks, "Eureka!", "Explorers have discovered a foreign land trading thousands of crystals!", 15, 0, 15, 0);
+  //ev6 = new ev(crystals, blanks, "Tariff", "Our traders have placed a tariff on exported crystals, causing less of them to be shipped to our nation.", 15, 0, -15, 0);
+  ev3 = new ev(dragon_scales, blanks, "Save the dragons!", "Activists have insisted that people stop killing dragons for their scales.", 5, 0, -5, 0);
+  //ev8 = new ev(unicorn_horn, blanks, "Save the unicorns!", "Activists have insisted that people stop killing unicorns for their horns.", 5, 0, -5, 0);
+  //ev9 = new ev(tomes, blanks, "Tomes in fashion!", "I'm not quite sure what a tome is, but a lot of people seem to be buying them right now! Invest!", 10, 0, 10, 0);
+  //ev10 = new ev(cyclops_eyes, blanks, "Cyclops island discovered!", "An island inhabited by cyclopses has been discovered and pillaged, leading to a surplus in cyclops eyes.", 10, 0, 5, 0);
+  //ev11 = new ev(leather, blanks, "Leather in fashion!", "Many people are buying leather as a new fashion trend.", 10, 0, 10, 0);
+  //ev12 = new ev(leather, blanks, "Leather out of fashion!", "People have seemed to lose interest in leather. Expect stocks to fall.", 10, 0, -5, 0);
   //ev13 = new ev(pegasus_feathers, blanks, "Feathers in fashion!", "People have begun wearing pegasus feathers in their hair as a good luck charm! Invest!", 8, 0, 6, 0);
-  ev14 = new ev(scepters, blanks, "A surplus in scepters!", "There seems to be a huge interest in scepters recently! Expect stocks to raise!", 5, 0, 7, 0);
-  ev15 = new ev(phoenix_ash, blanks, "Ash everywhere!", "It is phoenix season, and their ash is going in fashion!", 7, 0, 27, 0);
-  ev16 = new ev(troll_teeth, blanks, "Trolled!", "Troll teeth are going out of fashion.", 5, 0, -10, 0);
-  ev17 = new ev(goblin_hide, blanks, "Hides in fashion!", "People have become increasingly impressed with goblin hides, causing prices to increase!", 5, 0, 3, 0);
+  //ev14 = new ev(scepters, blanks, "A surplus in scepters!", "There seems to be a huge interest in scepters recently! Expect stocks to raise!", 5, 0, 7, 0);
+  //ev15 = new ev(phoenix_ash, blanks, "Ash everywhere!", "It is phoenix season, and their ash is going in fashion!", 7, 0, 27, 0);
+  //ev16 = new ev(troll_teeth, blanks, "Trolled!", "Troll teeth are going out of fashion.", 5, 0, -10, 0);
+  //ev17 = new ev(goblin_hide, blanks, "Hides in fashion!", "People have become increasingly impressed with goblin hides, causing prices to increase!", 5, 0, 3, 0);
   events.push(create);
   events.push(ev1);
   events.push(ev2);
-//  events.push(ev3);
-  events.push(ev4);
-  events.push(ev5);
-  events.push(ev6);
-  events.push(ev7);
-  events.push(ev8);
-  events.push(ev9);
-  events.push(ev10);
-  events.push(ev11);
-  events.push(ev12);
+  events.push(ev3);
+//  events.push(ev4);
+//  events.push(ev5);
+//  events.push(ev6);
+//  events.push(ev7);
+//  events.push(ev8);
+//  events.push(ev9);
+//  events.push(ev10);
+//  events.push(ev11);
+//  events.push(ev12);
   //events.push(ev13);
-  events.push(ev14);
-  events.push(ev15);
-  events.push(ev16);
-  events.push(ev17);
+//  events.push(ev14);
+//  events.push(ev15);
+//  events.push(ev16);
+//  events.push(ev17);
 }
 
 // Game loop and price modulation-----------------------------------------------
