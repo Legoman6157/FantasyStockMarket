@@ -34,9 +34,9 @@
           <br/>
           Scroll Price: <span id="scrollPrice">0</span>g
           <div id="scroll-position-container" style="display: inline" style="visibility: hidden">
-            <br/>
-            Average Cost: <span id="scrollAverageCost">0</span>g
-            <br/>
+            <!-- <br/>
+            Average Cost: <span id="scrollAverageCost">0</span>g -->
+            <br/> 
             <!-- lord help me what is the correct way to do this -->
             Total Return: <span id="scrollTotalReturnColor"><span id="scrollTotalReturnSign">+</span><span id="scrollTotalReturn">0</span>g</span>
           </div>
@@ -59,9 +59,9 @@
           <br/>
           Sword Price: <span id="swordPrice">0</span>g
           <div id="sword-position-container" style="display: inline" style="visibility: hidden">
-            <br/>
-            Average Cost: <span id="swordAverageCost">0</span>
-            <br/>
+            <!-- <br/>
+            Average Cost: <span id="swordAverageCost">0</span> -->
+            <br/> 
             <!-- lord help me what is the correct way to do this -->
             Total Return: <span id="swordTotalReturnColor"><span id="swordTotalReturnSign">+</span><span id="swordTotalReturn">0</span>g</span>
           </div>
@@ -77,7 +77,21 @@
       <div id="quest-inner-container" class="content">
         <h1>Quests</h1>
 			Go around begging for money.
-        	<button onClick="doQuest(0)" style="float: right"><span id="Q0Cooldown">Free</span></button>
+			<br/>
+        	<button onClick="begQuest()" style="float: right">
+				<span id="begCDcolor">
+					<span id="begCD">Free</span>
+				</span>
+			</button>
+			<br/>
+			<br/>
+			Use dark magic to attempt to double scrolls.
+			<br/>
+        	<button onClick="darkQuest()" style="float: right">
+				<span id="darkCDcolor">
+					<span id="darkCD">Free</span>
+				</span>
+			</button>
       </div>
     </div>
   </div>

@@ -20,27 +20,47 @@ function hireAdventurer(n) {
     document.getElementById("adventurerCost").innerHTML = nextCost;
 }
 
+// Update components of index.html ---------------------------------------------
+
+//TODO
+
 // Quest system prototype ------------------------------------------------------
 
-var allQuests = [
-	{
-		cooldown: 	30,
-		chance:		1,
-		cost:		0,
-		reward:		10
-	},
-	{
-		cooldown:	90,
-		chance:		0.5,
-		cost: 		250,
-		reward:		600
-	}
+// Initialize cooldown trackers
+var CDs = [
+	{t: begCD = 0, name: "begCD", price: 0},
+	{t: darkCD = 0, name: "darkCD", price: 250}
+	//{t: dragonCD = 300, name: "dragonCD", price: 1000}
 ];
 
-function doQuest(qID) {
-	var quest = allQuests[qID];
-
+function begQuest() { // Quest ID: 0
+	if (CDs[0].t < 0) {
+		gold += 10;
+		CDs[0].t = 30;
+	}
 }
+
+function darkQuest() { // Quest ID: 1
+	if (CDs[1].t < 0 && gold >= CDs[1].price) {
+		gold -= CDs[1].price;
+		let die = Math.floor(Math.random() * 2 + 0.10);
+		let n = scrolls.shares.length
+		if (die == 1) {
+			for (i = 0; i < n; i++) {
+				scrolls.shares.push(0);
+			}
+		} else {
+			n -= Math.floor(Math.random() * n);
+			for (i = 0; i < n; i++) {
+				scrolls.shares.shift();
+			}
+		}
+		document.getElementById("scrollQuantity").innerHTML = scrolls.shares.length;
+		CDs[1].t = 60;
+	}
+}
+
+// A quest to unlock dragon eggs
 
 // Item handling ---------------------------------------------------------------
 
@@ -92,8 +112,8 @@ function buyItem(n, item) {
         // Update the page
         document.getElementById("gold").innerHTML = gold;
         document.getElementById(item.name + "Quantity").innerHTML = item.shares.length;
-        document.getElementById(item.name + "AverageCost").innerHTML = (item.total_cost / item.shares.length).toFixed(2)
-    } // TODO: else: buy as many as you can
+//        document.getElementById(item.name + "AverageCost").innerHTML = (item.total_cost / item.shares.length).toFixed(2)
+    }
 }
 
 function sellItem(n, item) {
@@ -102,18 +122,18 @@ function sellItem(n, item) {
     }
     if (item.shares.length >= n) {
         for (i = 0; i < n; i++) {
-            item.total_cost -= item.shares.shift(item.price) //pop oldest price from front
+            item.total_cost -= item.shares.shift() //pop oldest price from front
         }
         gold = Number((gold + item.price * n).toFixed(2));
 
         // Update the page
         document.getElementById("gold").innerHTML = gold;
-        document.getElementById(item.name + "Quantity").innerHTML = item.shares.length();
-        if (item.shares.length > 0) {
-            document.getElementById(item.name + "AverageCost").innerHTML = (item.total_cost / item.shares.length).toFixed(2)
-        } else {
-            document.getElementById(item.name + "AverageCost").innerHTML = 0;
-        }
+        document.getElementById(item.name + "Quantity").innerHTML = item.shares.length;
+//        if (item.shares.length > 0) {
+//            document.getElementById(item.name + "AverageCost").innerHTML = (item.total_cost / item.shares.length).toFixed(2)
+//       } else {
+//            document.getElementById(item.name + "AverageCost").innerHTML = 0;
+//        }
     }
 }
 
@@ -188,6 +208,22 @@ window.setInterval(function() {
             document.getElementById(item.name + "-position-container").style.visibility="hidden";
         }
     }
+
+	// Tick quest cds
+	for (CD of CDs) {
+		CD.t--;
+		if (CD.t > 0) {
+			document.getElementById(CD.name).innerHTML = CD.t;
+			document.getElementById(CD.name + "color").style.color = 'red';
+		} else {
+			document.getElementById(CD.name + "color").style.color = 'black';
+			if (CD.price > 0) {
+				document.getElementById(CD.name).innerHTML = CD.price;
+			} else {
+				document.getElementById(CD.name).innerHTML = "Free";
+			}
+		}
+	}
 
     document.getElementById("tradingDay").innerHTML = Math.floor(time/24) + 1;
     document.getElementById("tradingHour").innerHTML = Math.floor(time % 24);
