@@ -144,3 +144,52 @@ function king(name, description, typeUp, typeDown){
   this.typeUp = typeUp;
   this.typeDown = typeDown;
 }
+
+
+
+
+
+<div class="stock-option-container">
+  <h3>Wine</h3>
+  <button onClick="buyItem(10, wine)">+10</button>
+  <button onClick="buyItem(1, wine)">Buy axe</button>
+  <button onClick="sellItem(1, wine)">Sell axe</button>
+  <button onClick="sellItem(10, wine)">-10</button>
+  <br/>
+  Axes: <span id="wineQuantity">0</span>
+  <br/>
+  Axe Price: <span id="winePrice">0</span>g
+  <div id="wine-position-container" style="display: inline" style="visibility: hidden">
+    <br/>
+    Average Cost: <span id="wineAverageCost">0</span>g
+    <br/>
+    <!-- lord help me what is the correct way to do this -->
+    Total Return: <span id="wineTotalReturnColor"><span id="wineTotalReturnSign">+</span><span id="wineTotalReturn">0</span>g</span>
+  </div>
+  <br/>
+  Bias [<span id="wineBias">0</span>]: <button onClick="b_up(wine)">+</button> <button onClick="b_down(wine)">-</button>
+  <br/>
+  Volatility [<span id="wineVol">0</span>]: <button onClick="v_up(wine)">+</button> <button onClick="v_down(wine)">-</button>
+</div>
+<div class="stock-option-container">
+    <h3>Dragon Scales</h3>
+    <button onClick="buyItem(10, dragon_scales)">+10</button>
+    <button onClick="buyItem(1, dragon_scales)">Buy shield</button>
+    <button onClick="sellItem(1, dragon_scales)">Sell shield</button>
+    <button onClick="sellItem(10, dragon_scales)">-10</button>
+    <br/>
+    Shields: <span id="dragon_scaleQuantity">0</span>
+    <br/>
+    Shield Price: <span id="dragon_scalePrice">0</span>g
+    <div id="dragon_scale-position-container" style="display: inline" style="visibility: hidden">
+      <br/>
+      Average Cost: <span id="dragon_scaleAverageCost">0</span>g
+      <br/>
+      <!-- lord help me what is the correct way to do this -->
+      Total Return: <span id="dragon_scaleTotalReturnColor"><span id="dragon_scaleTotalReturnSign">+</span><span id="dragon_scaleTotalReturn">0</span>g</span>
+    </div>
+    <br/>
+    Bias [<span id="dragon_scaleBias">0</span>]: <button onClick="b_up(dragon_scales)">+</button> <button onClick="b_down(dragon_scales)">-</button>
+    <br/>
+    Volatility [<span id="dragon_scaleVol">0</span>]: <button onClick="v_up(dragon_scales)">+</button> <button onClick="v_down(dragon_scales)">-</button>
+</div>

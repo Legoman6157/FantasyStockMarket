@@ -276,6 +276,56 @@ function priceShift(bias, vol, price) {
     }
 }
 
+// Tab functions ---------------------------------------------------------------
+
+$(document).ready(function() {
+  $("#stock-tab").click(function() {
+    if ($("#stock-tab").hasClass("inactive-tab")) {
+      $("#stock-outer-container").show();
+      $("#quest-outer-container").hide();
+      $("#monarch-outer-container").hide();
+      setActiveTab("#stock-tab");
+    }
+  })
+  $("#quest-tab").click(function() {
+    if ($("#quest-tab").hasClass("inactive-tab")) {
+      $("#stock-outer-container").hide();
+      $("#quest-outer-container").show();
+      $("#monarch-outer-container").hide();
+      setActiveTab("#quest-tab");
+      console.log("Switching to quest tab");
+    }
+  })
+  $("#monarch-tab").click(function() {
+    if ($("#monarch-tab").hasClass("inactive-tab")) {
+      $("#stock-outer-container").hide();
+      $("#quest-outer-container").hide();
+      $("#monarch-outer-container").show();
+      setActiveTab("#monarch-tab");
+      console.log("Switching to monarch tab");
+    }
+  })
+});
+
+function setActiveTab(activeTabID) {
+  if ($("#stock-tab").hasClass("active-tab")) {
+    $("#stock-tab").removeClass("active-tab");
+    $("#stock-tab").addClass("inactive-tab");
+  }
+
+  if ($("#quest-tab").hasClass("active-tab")) {
+    $("#quest-tab").removeClass("active-tab");
+    $("#quest-tab").addClass("inactive-tab");
+  }
+
+  if ($("#monarch-tab").hasClass("active-tab")) {
+    $("#monarch-tab").removeClass("active-tab");
+    $("#monarch-tab").addClass("inactive-tab");
+  }
+
+  $(activeTabID).removeClass("inactive-tab");
+  $(activeTabID).addClass("active-tab");
+}
 var time = 0;
 var gamespeed = 500;
 
