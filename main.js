@@ -136,6 +136,49 @@ function sellItem(n, item) {
 //        }
     }
 }
+function ev(item1, item2, title, text, Vol1, Vol2, jump1, jump2){
+  this.item1=item1;
+  this.item2=item2;
+  this.Vol1=Vol1;
+  this.Vol2=Vol2;
+  this.title=title;
+  this.text=text;
+  this.jump1=jump1;
+  this.jump2=jump2
+}
+var randEv = new ev();
+var events = [];
+var kings = [];
+function king(name, description, typeUp, typeDown){
+  this.name = name;
+  this.description = description;
+  this.typeUp = typeUp;
+  this.typeDown = typeDown;
+}
+
+
+function get_event(randEv){
+  var randEv = new ev();
+  randEv=events[Math.floor(Math.random() * events.length)];
+  //alert(randEv.title);
+  if(randEv.item1.name != "blanks"){
+    randEv.item1.vol += randEv.Vol1;
+    randEv.item1.bias += randEv.jump1;
+    //randEv.item1.price +=randEv.jump1;
+  }
+  if(randEv.item2.name != "blanks"){
+    randEv.item2.vol += randEv.Vol2;
+    randEv.item2.bias += randEv.jump2;
+  }
+}
+function create_events(){
+  //var events = [];
+  alert("Events loaded!");
+  create = new ev(swords, blanks, "Axes in Fashion",
+  "After a recent raid by some dashing vikings, people have become smitten with axes."
+  , 10, 0, -20, 0);
+  events.push(create);
+}
 
 // Game loop and price modulation-----------------------------------------------
 
@@ -163,6 +206,59 @@ function priceShift(bias, vol, price) {
     }
 }
 
+// Tab functions ---------------------------------------------------------------
+
+$(document).ready(function() {
+  $("#stock-tab").click(function() {
+    if ($("#stock-tab").hasClass("inactive-tab")) {
+      $("#stock-outer-container").show();
+      $("#quest-outer-container").hide();
+      $("#monarch-outer-container").hide();
+      setActiveTab("#stock-tab");
+    }
+  })
+  $("#quest-tab").click(function() {
+    if ($("#quest-tab").hasClass("inactive-tab")) {
+      $("#stock-outer-container").hide();
+      $("#quest-outer-container").show();
+      $("#monarch-outer-container").hide();
+      setActiveTab("#quest-tab");
+      console.log("Switching to quest tab");
+    }
+  })
+  $("#monarch-tab").click(function() {
+    if ($("#monarch-tab").hasClass("inactive-tab")) {
+      $("#stock-outer-container").hide();
+      $("#quest-outer-container").hide();
+      $("#monarch-outer-container").show();
+      setActiveTab("#monarch-tab");
+      console.log("Switching to monarch tab");
+    }
+  })
+});
+
+function setActiveTab(activeTabID) {
+  if ($("#stock-tab").hasClass("active-tab")) {
+    $("#stock-tab").removeClass("active-tab");
+    $("#stock-tab").addClass("inactive-tab");
+  }
+
+  if ($("#quest-tab").hasClass("active-tab")) {
+    $("#quest-tab").removeClass("active-tab");
+    $("#quest-tab").addClass("inactive-tab");
+  }
+
+  if ($("#monarch-tab").hasClass("active-tab")) {
+    $("#monarch-tab").removeClass("active-tab");
+    $("#monarch-tab").addClass("inactive-tab");
+  }
+
+  $(activeTabID).removeClass("inactive-tab");
+  $(activeTabID).addClass("active-tab");
+}
+
+// End of tab functions --------------------------------------------------------
+
 var time = 0;
 var gamespeed = 500;
 
@@ -185,12 +281,17 @@ window.setInterval(function() {
             item.price = item.price + priceShift(item.bias, item.vol, item.price);
         }
     }
+    if (time % 36 == 0){
+      get_event(randEv);
+    }
 
     // Calculate and update the price, average cost, total return values.
     // only show average cost/total return if you actually own the item
     for (item of allItems) {
 
         document.getElementById(item.name + "Price").innerHTML = item.price.toFixed(2);
+        document.getElementById(item.name + "Bias").innerHTML = item.bias.toFixed(2);
+        document.getElementById(item.name + "Vol").innerHTML = item.vol.toFixed(2);
         if (item.shares.length > 0) {
             document.getElementById(item.name + "-position-container").style.visibility="visible";
 
