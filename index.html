@@ -28,6 +28,7 @@
           <h1>Stock Options</h1>
 
         <!-- Scrolls -->
+
         <div class="stock-option-container">
           <h3>Scrolls</h3>
           <button onClick="buyItem(10, scrolls)">+10</button>
@@ -38,10 +39,10 @@
           Scrolls: <span id="scrollQuantity">0</span>
           <br/>
           Scroll Price: <span id="scrollPrice">0</span>g
-          <div id="scroll-position-container" style="display: inline" >
-            <br/>
-            Average Cost: <span id="scrollAverageCost">0</span>g
-            <br/>
+          <div id="scroll-position-container" style="display: inline" style="visibility: hidden">
+            <!-- <br/>
+            Average Cost: <span id="scrollAverageCost">0</span>g -->
+            <br/> 
             <!-- lord help me what is the correct way to do this -->
             Total Return: <span id="scrollTotalReturnColor"><span id="scrollTotalReturnSign">+</span><span id="scrollTotalReturn">0</span>g</span>
           </div>
@@ -64,9 +65,9 @@
           <br/>
           Sword Price: <span id="swordPrice">0</span>g
           <div id="sword-position-container" style="display: inline" style="visibility: hidden">
-            <br/>
-            Average Cost: <span id="swordAverageCost">0</span>g
-            <br/>
+            <!-- <br/>
+            Average Cost: <span id="swordAverageCost">0</span> -->
+            <br/> 
             <!-- lord help me what is the correct way to do this -->
             Total Return: <span id="swordTotalReturnColor"><span id="swordTotalReturnSign">+</span><span id="swordTotalReturn">0</span>g</span>
           </div>
@@ -80,10 +81,23 @@
       </div>
       <div id="quest-outer-container" class="content" align="center">
         <div id="quest-inner-container" class="content">
-          <h3>Quests</h3>
-          <button onClick="basicClick(1)">Go on quest</button>
-          <button onClick="hireAdventurer(1)">Hire adventurer - <span id="adventurerCost">10</span>g</button>
-          Adventurers: <span id="adventurers">0</span>
+          <h1>Quests</h1>
+			  Go around begging for money.
+			  <br/>
+        	  <button onClick="begQuest()" style="float: right">
+				  <span id="begCDcolor">
+					  <span id="begCD">Free</span>
+				  </span>
+			  </button>
+			  <br/>
+			  <br/>
+			  Use dark magic to attempt to double scrolls.
+			  <br/>
+        	  <button onClick="darkQuest()" style="float: right">
+				  <span id="darkCDcolor">
+					  <span id="darkCD">Free</span>
+				  </span>
+			  </button>
         </div>
       </div>
       <div id="monarch-outer-container" class="content" align="center">
