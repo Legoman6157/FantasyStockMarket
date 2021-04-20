@@ -402,7 +402,7 @@ window.setInterval(function() {
             item.price = item.price + priceShift(item.bias, item.vol, item.price);
         }
     }
-    if (time % 10 == 0){
+    if (time % 36 == 0){
       get_event();
     }
 
