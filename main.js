@@ -227,8 +227,8 @@ function succession(){
     }
   }
 }
-
-function get_event(randEv){
+var lastEv = null;
+function get_event(){
   var randEv = new ev();
   randEv=events[Math.floor(Math.random() * events.length)];
   alert(randEv.title);
@@ -251,6 +251,11 @@ function get_event(randEv){
     randEv.item2.vol += randEv.Vol2;
     randEv.item2.bias += randEv.jump2;
   }
+  if(lastEv!=null){
+    lastEv.item1.vol -= randEv.Vol1;
+    lastEv.item2.vol -= randEv.Vol2;
+  }
+  lastEv=randEv
 }
 function create_events(){
   //var events = [];
@@ -259,7 +264,7 @@ function create_events(){
   "After a recent raid by some dashing vikings, people have become smitten with axes."
   , 10, 0, -20, 0);
   ev1 = new ev(wine, blanks, "Celebration!", "The royal family has blessed us with a new child. The kindom dinks in merryment!", 10, 0, 20, 0)
-  ev2 = new ev(scrolls, blanks, "Magical Interests!", "Many in the kingdom have taken up an interest in novice magic.", 40, 0, 30, 0)
+  ev2 = new ev(scrolls, blanks, "Magical Interests!", "Many in the kingdom have taken up an interest in novice magic.", 8, 0, 10, 0)
   //ev1 = new ev(swords, axes, "War declared!", "A neighboring kingdom has declared war on our noble nation, causing many to buy weapons.", 10, 10, 20, 20);
   //ev2 = new ev(swords, shields, "Invasion!", "Our kingdom has been invaded! Invest in swords and shields to protect yourself!", 5, 5, 15, 20);
   //ev4 = new ev(grain, blanks, "Drought", "Our land has not received rainfall since the last full moon, causing the crops to grow less.", 20, 0, -25, 0);
@@ -378,7 +383,6 @@ function setActiveTab(activeTabID) {
 
 var time = 0;
 var gamespeed = 500;
-
 window.setInterval(function() {
     // This function will run every 'gamespeed' ms. Generally updates the price of
     // items (as well as the player's money from 'clicker' stuff) and then
@@ -398,8 +402,8 @@ window.setInterval(function() {
             item.price = item.price + priceShift(item.bias, item.vol, item.price);
         }
     }
-    if (time % 36 == 0){
-      get_event(randEv);
+    if (time % 10 == 0){
+      get_event();
     }
 
     // Calculate and update the price, average cost, total return values.
