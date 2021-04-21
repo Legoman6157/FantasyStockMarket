@@ -200,7 +200,7 @@ function create_kings(){
 }
 
 function pick_candidates(){
-  alert("pick candidates!");
+  //alert("pick candidates!");
   var rand;
   var candidate;
   for(var i=0; i<2; i++){
@@ -248,7 +248,7 @@ var lastEv = null;
 function get_event(){
   var randEv = new ev();
   randEv=events[Math.floor(Math.random() * events.length)];
-  //alert(randEv.title);
+  alert(randEv.title);
   if(randEv.item1.name != "blanks"){
     if(randEv.item1.vol + randEv.Vol1<1){
       randEv.item1.vol = 1;
