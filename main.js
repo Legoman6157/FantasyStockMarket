@@ -29,10 +29,14 @@ function hireAdventurer(n) {
 // Initialize cooldown trackers
 var CDs = [
 	{t: begCD = 0, name: "begCD", price: 0},
-	{t: darkCD = 0, name: "darkCD", price: 250}
+	{t: darkCD = 0, name: "darkCD", price: 250},
+	{t: swordCD = 0, name: "swordCD", price: 100},
+	{t: wineCD = 0, name: "wineCD", price: 25}
 	//{t: dragonCD = 300, name: "dragonCD", price: 1000}
 ];
 
+// Gives you 10 dollars
+// Cooldown: 30 seconds
 function begQuest() { // Quest ID: 0
 	if (CDs[0].t < 0) {
 		gold += 10;
@@ -40,10 +44,12 @@ function begQuest() { // Quest ID: 0
 	}
 }
 
+// Doubles your scrolls at a 60% chance, you lose a random amount on fail
+// Cooldown: 60 seconds
 function darkQuest() { // Quest ID: 1
 	if (CDs[1].t < 0 && gold >= CDs[1].price) {
 		gold -= CDs[1].price;
-		let die = Math.floor(Math.random() * 2 + 0.10);
+		let die = Math.floor(Math.random() * 2 + 0.20);
 		let n = scrolls.shares.length
 		if (die == 1) {
 			for (i = 0; i < n; i++) {
@@ -57,6 +63,32 @@ function darkQuest() { // Quest ID: 1
 		}
 		document.getElementById("scrollQuantity").innerHTML = scrolls.shares.length;
 		CDs[1].t = 60;
+	}
+}
+
+// Upgrades the price of swords by 12% permanently
+// Cooldown: 45 seconds
+function swordQuest() { // Quest ID: 2
+	if (CDs[2].t < 0 && gold >= CDs[2].price) {
+		gold -= CDs[2].price;
+		swords.bias = Math.floor( swords.bias * 1.12);
+		CDs[2].t = 45;
+	}
+}
+
+// Temporarily pumps the price of wine, with a 10% chance of crashing
+// Cooldown: 60 seconds
+function wineQuest() { // Quest ID: 3
+	if (CDs[3].t < 0 && gold >= CDs[3].price) {
+		gold -= CDs[3].price;
+		let die = Math.floor(Math.random() + 0.9);
+		if (die == 1) { //90% chance
+			wine.price = Math.floor(wine.price * 2);
+		} else {
+			wine.bias = Math.floor(wine.bias / 2);
+			wine.price = Math.floor(wine.bias / 1.5);
+		}
+		CDs[3].t = 60;
 	}
 }
 
@@ -150,7 +182,7 @@ function sellItem(n, item) {
         // Update the page
         document.getElementById("gold").innerHTML = gold;
 
-      document.getElementById(item.name + "Quantity").innerHTML = item.shares.length();
+      document.getElementById(item.name + "Quantity").innerHTML = item.shares.length;
 //        if (item.shares.length > 0) {
 //            document.getElementById(item.name + "AverageCost").innerHTML = (item.total_cost / item.shares.length).toFixed(2);
 //        } else {
@@ -231,7 +263,8 @@ var lastEv = null;
 function get_event(){
   var randEv = new ev();
   randEv=events[Math.floor(Math.random() * events.length)];
-  alert(randEv.title);
+  //alert(randEv.title);
+  console.log(randEv.title);
   if(randEv.item1.name != "blanks"){
     if(randEv.item1.vol + randEv.Vol1<1){
       randEv.item1.vol = 1;
