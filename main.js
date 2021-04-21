@@ -185,7 +185,7 @@ var currKing = new king("King Neutralitus III",
 
 function create_kings(){
   //var events = [];
-  alert("Kings loaded!");
+  //alert("Kings loaded!");
   k1 = new king("Queen Audra II",
   "A sorcerrer's apprentence", magic, war);
   k2 = new king("King Bartholemau I",
@@ -231,7 +231,7 @@ var lastEv = null;
 function get_event(){
   var randEv = new ev();
   randEv=events[Math.floor(Math.random() * events.length)];
-  alert(randEv.title);
+  //alert(randEv.title);
   if(randEv.item1.name != "blanks"){
     if(randEv.item1.vol + randEv.Vol1<1){
       randEv.item1.vol = 1;
@@ -259,7 +259,7 @@ function get_event(){
 }
 function create_events(){
   //var events = [];
-  alert("Events loaded!");
+  //alert("Events loaded!");
   create = new ev(swords, blanks, "Axes in Fashion",
   "After a recent raid by some dashing vikings, people have become smitten with axes."
   , 10, 0, -20, 0);
@@ -329,53 +329,58 @@ function priceShift(bias, vol, price) {
 
 // Tab functions ---------------------------------------------------------------
 
-$(document).ready(function() {
-  $("#stock-tab").click(function() {
-    if ($("#stock-tab").hasClass("inactive-tab")) {
-      $("#stock-outer-container").show();
-      $("#quest-outer-container").hide();
-      $("#monarch-outer-container").hide();
-      setActiveTab("#stock-tab");
-    }
-  })
-  $("#quest-tab").click(function() {
-    if ($("#quest-tab").hasClass("inactive-tab")) {
-      $("#stock-outer-container").hide();
-      $("#quest-outer-container").show();
-      $("#monarch-outer-container").hide();
-      setActiveTab("#quest-tab");
-      console.log("Switching to quest tab");
-    }
-  })
-  $("#monarch-tab").click(function() {
-    if ($("#monarch-tab").hasClass("inactive-tab")) {
-      $("#stock-outer-container").hide();
-      $("#quest-outer-container").hide();
-      $("#monarch-outer-container").show();
-      setActiveTab("#monarch-tab");
-      console.log("Switching to monarch tab");
-    }
-  })
-});
+var mainTabIDs = [
+  "#stock-tab",
+  "#quest-tab",
+  "#monarch-tab"
+]
+var mainContentIDs = [
+  "#stock-outer-container",
+  "#quest-outer-container",
+  "#monarch-outer-container"
+]
 
-function setActiveTab(activeTabID) {
-  if ($("#stock-tab").hasClass("active-tab")) {
-    $("#stock-tab").removeClass("active-tab");
-    $("#stock-tab").addClass("inactive-tab");
+function setActiveMainTab(activeTabNum) {
+  for (var i = 0; i < mainTabIDs.length; i++) {
+    $(mainTabIDs[i]).removeClass("active-tab");
+    $(mainTabIDs[i]).addClass("inactive-tab");
+    $(mainContentIDs[i]).hide();
   }
 
-  if ($("#quest-tab").hasClass("active-tab")) {
-    $("#quest-tab").removeClass("active-tab");
-    $("#quest-tab").addClass("inactive-tab");
+  $(mainTabIDs[activeTabNum]).removeClass("inactive-tab");
+  $(mainTabIDs[activeTabNum]).addClass("active-tab");
+  $(mainContentIDs[activeTabNum]).show();
+}
+
+function hideWelcomeImage() {
+  $("#welcome-image").hide();
+  $("#start-button").hide();
+}
+
+var stockTabIDs = [
+  "#war-tab",
+  "#magic-tab",
+  "#goods-tab",
+  "#monster-parts-tab"
+]
+
+var stockContentIDs = [
+  "#war-container",
+  "#magic-container",
+  "#goods-container",
+  "#monster-parts-container"
+]
+
+function setActiveStockTab(activeTabNum) {
+  for (var i = 0; i < stockTabIDs.length; i++) {
+    $(stockTabIDs[i]).removeClass("active-tab");
+    $(stockTabIDs[i]).addClass("inactive-tab");
+    $(stockContentIDs[i]).hide();
   }
 
-  if ($("#monarch-tab").hasClass("active-tab")) {
-    $("#monarch-tab").removeClass("active-tab");
-    $("#monarch-tab").addClass("inactive-tab");
-  }
-
-  $(activeTabID).removeClass("inactive-tab");
-  $(activeTabID).addClass("active-tab");
+  $(stockTabIDs[activeTabNum]).removeClass("inactive-tab");
+  $(stockTabIDs[activeTabNum]).addClass("active-tab");
+  $(stockContentIDs[activeTabNum]).show();
 }
 
 

@@ -6,6 +6,8 @@
     <link href='https://fonts.googleapis.com/css?family=Beth Ellen' rel='stylesheet'>
 </head>
 <body onload="create_events()">
+  <img id="welcome-image" src="images/image.png">
+  <button id="start-button" onclick="hideWelcomeImage()">Start</button>
   <img id="bg-left" src="images/bg-right.png">
   <img id="bg-right" src="images/bg-right.png">
   <div id="main-content-container">
@@ -20,64 +22,76 @@
         Gold: <span id="gold">0</span>g
       </div>
       <div id="tab-container">
-        <button id="stock-tab" class="active-tab">Stocks</button><!--Padding protect
-        --><button id="quest-tab" class="inactive-tab">Quests</button><!--Padding protect
-        --><button id="monarch-tab" class="inactive-tab">Monarchs</button>
+        <button id="stock-tab" class="active-tab" onclick="setActiveMainTab(0)">Stocks</button><!--Padding protect
+        --><button id="quest-tab" class="inactive-tab" onclick="setActiveMainTab(1)">Quests</button><!--Padding protect
+        --><button id="monarch-tab" class="inactive-tab" onclick="setActiveMainTab(2)">Monarchs</button>
       </div>
       <div id="stock-outer-container" class="content" align="center">
         <div id="stock-inner-container" class="content">
           <h1>Stock Options</h1>
 
+        <div id="stock-options-tab-container">
+          <button id="war-tab" class="active-tab" onclick="setActiveStockTab(0)">War</button><!--Padding protect
+          --><button id="magic-tab" class="inactive-tab" onclick="setActiveStockTab(1)">Magic</button><!--Padding protect
+          --><button id="goods-tab" class="inactive-tab" onclick="setActiveStockTab(2)">Goods</button><!--Padding protect
+          --><button id="monster-parts-tab" class="inactive-tab" onclick="setActiveStockTab(3)">Monster parts</button>
+        </div>
+
         <!-- Scrolls -->
 
-        <div class="stock-option-container">
-          <h3>Scrolls</h3>
-          <button onClick="buyItem(10, scrolls)">+10</button>
-          <button onClick="buyItem(1, scrolls)">Buy scroll</button>
-          <button onClick="sellItem(1, scrolls)">Sell scroll</button>
-          <button onClick="sellItem(10, scrolls)">-10</button>
-          <br/>
-          Scrolls: <span id="scrollQuantity">0</span>
-          <br/>
-          Scroll Price: <span id="scrollPrice">0</span>g
-          <div id="scroll-position-container" style="display: inline" style="visibility: hidden">
-            <!-- <br/>
-            Average Cost: <span id="scrollAverageCost">0</span>g -->
+        <div id="war-container">
+          <div class="stock-option-container">
+            <h3>Swords</h3>
+            <button onClick="buyItem(10, swords)">+10</button>
+            <button onClick="buyItem(1, swords)">Buy sword</button>
+            <button onClick="sellItem(1, swords)">Sell sword</button>
+            <button onClick="sellItem(10, swords)">-10</button>
             <br/>
-            <!-- lord help me what is the correct way to do this -->
-            Total Return: <span id="scrollTotalReturnColor"><span id="scrollTotalReturnSign">+</span><span id="scrollTotalReturn">0</span>g</span>
+            Swords: <span id="swordQuantity">0</span>
+            <br/>
+            Sword Price: <span id="swordPrice">0</span>g
+            <div id="sword-position-container" style="display: inline" style="visibility: hidden">
+              <!-- <br/>
+              Average Cost: <span id="swordAverageCost">0</span> -->
+              <br/>
+              <!-- lord help me what is the correct way to do this -->
+              Total Return: <span id="swordTotalReturnColor"><span id="swordTotalReturnSign">+</span><span id="swordTotalReturn">0</span>g</span>
+            </div>
+            <br/>
+            Bias [<span id="swordBias">0</span>]: <button onClick="b_up(swords)">+</button> <button onClick="b_down(swords)">-</button>
+            <br/>
+            Volatility [<span id="swordVol">0</span>]: <button onClick="v_up(swords)">+</button> <button onClick="v_down(swords)">-</button>
           </div>
-          <br/>
-          Bias [<span id="scrollBias">0</span>]: <button onClick="b_up(scrolls)">+</button> <button onClick="b_down(scrolls)">-</button>
-          <br/>
-          Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up(scrolls)">+</button> <button onClick="v_down(scrolls)">-</button>
         </div>
-
           <!-- Swords -->
 
-        <div class="stock-option-container">
-          <h3>Swords</h3>
-          <button onClick="buyItem(10, swords)">+10</button>
-          <button onClick="buyItem(1, swords)">Buy sword</button>
-          <button onClick="sellItem(1, swords)">Sell sword</button>
-          <button onClick="sellItem(10, swords)">-10</button>
-          <br/>
-          Swords: <span id="swordQuantity">0</span>
-          <br/>
-          Sword Price: <span id="swordPrice">0</span>g
-          <div id="sword-position-container" style="display: inline" style="visibility: hidden">
-            <!-- <br/>
-            Average Cost: <span id="swordAverageCost">0</span> -->
+        <div id="magic-container">
+          <div class="stock-option-container">
+            <h3>Scrolls</h3>
+            <button onClick="buyItem(10, scrolls)">+10</button>
+            <button onClick="buyItem(1, scrolls)">Buy scroll</button>
+            <button onClick="sellItem(1, scrolls)">Sell scroll</button>
+            <button onClick="sellItem(10, scrolls)">-10</button>
             <br/>
-            <!-- lord help me what is the correct way to do this -->
-            Total Return: <span id="swordTotalReturnColor"><span id="swordTotalReturnSign">+</span><span id="swordTotalReturn">0</span>g</span>
+            Scrolls: <span id="scrollQuantity">0</span>
+            <br/>
+            Scroll Price: <span id="scrollPrice">0</span>g
+            <div id="scroll-position-container" style="display: inline" style="visibility: hidden">
+              <!-- <br/>
+              Average Cost: <span id="scrollAverageCost">0</span>g -->
+              <br/>
+              <!-- lord help me what is the correct way to do this -->
+              Total Return: <span id="scrollTotalReturnColor"><span id="scrollTotalReturnSign">+</span><span id="scrollTotalReturn">0</span>g</span>
+            </div>
+            <br/>
+            Bias [<span id="scrollBias">0</span>]: <button onClick="b_up(scrolls)">+</button> <button onClick="b_down(scrolls)">-</button>
+            <br/>
+            Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up(scrolls)">+</button> <button onClick="v_down(scrolls)">-</button>
           </div>
-          <br/>
-          Bias [<span id="swordBias">0</span>]: <button onClick="b_up(swords)">+</button> <button onClick="b_down(swords)">-</button>
-          <br/>
-          Volatility [<span id="swordVol">0</span>]: <button onClick="v_up(swords)">+</button> <button onClick="v_down(swords)">-</button>
         </div>
-        <div class="stock-option-container">
+
+        <div id="goods-container">
+          <div class="stock-option-container">
           <h3>Wine</h3>
           <button onClick="buyItem(10, wine)">+10</button>
           <button onClick="buyItem(1, wine)">Buy Wine</button>
@@ -99,7 +113,10 @@
           <br/>
           Volatility [<span id="wineVol">0</span>]: <button onClick="v_up(wine)">+</button> <button onClick="v_down(wine)">-</button>
         </div>
-        <div class="stock-option-container">
+        </div>
+
+        <div id="monster-parts-container">
+          <div class="stock-option-container">
             <h3>Dragon Scales</h3>
             <button onClick="buyItem(10, dragon_scales)">+10</button>
             <button onClick="buyItem(1, dragon_scales)">Buy Dragon Scales</button>
@@ -120,6 +137,7 @@
             Bias [<span id="dragon_scaleBias">0</span>]: <button onClick="b_up(dragon_scales)">+</button> <button onClick="b_down(dragon_scales)">-</button>
             <br/>
             Volatility [<span id="dragon_scaleVol">0</span>]: <button onClick="v_up(dragon_scales)">+</button> <button onClick="v_down(dragon_scales)">-</button>
+        </div>
         </div>
         </div>
       </div>
