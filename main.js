@@ -182,19 +182,25 @@ function king(name, description, typeUp, typeDown){
 }
 var currKing = new king("King Neutralitus III",
 "A king who cares little for the kingdoms economic affairs.", null, null);
-
+document.getElementById("KingName").innerHTML = currKing.name;
+document.getElementById("KingDescription").innerHTML = currKing.description;
 function create_kings(){
   //var events = [];
   //alert("Kings loaded!");
   k1 = new king("Queen Audra II",
-  "A sorcerrer's apprentence", magic, war);
+  "A sorcerrer's apprentence", scrolls, swords);
   k2 = new king("King Bartholemau I",
-  "A military general who believes the neibouring kindom will declar war", war, goods)
+  "A military general who believes the neibouring kindom will declar war", swords, wine);
+  k3 = new king("Duke Hedoclease", "A man who believes that life is short and must be enjoyed", wine, scrolls);
+  k4 = new king("Morgana the Huntress", "A distant relative to the current monarch. Famous for her monster hunting.", dragon_scales, wine);
   kings.push(k1);
   kings.push(k2);
+  kings.push(k3);
+  kings.push(k4);
 }
 
 function pick_candidates(){
+  alert("pick candidates!");
   var rand;
   var candidate;
   for(var i=0; i<2; i++){
@@ -202,30 +208,41 @@ function pick_candidates(){
     candidate = kings[rand];
     candidates.push(candidate);
     kings.splice(rand, 1);
+    document.getElementById("Succ"+i+"Name").innerHTML = candidate.name;
+    document.getElementById("Succ"+i+"Desc").innerHTML = candidate.description;
+
   }
 }
 
 function succession(){
+  alert("A new ruler has been crowned!");
   var i;
   currKing= candidates[[Math.floor(Math.random() * candidates.length)]];
-  for(i=0; i<currKing.typeUp.size; i++){
-    currKing.typeUp[i].price+=10;
-    currKing.typeUp[i].bias+=20;
-  }
-  for(i=0; i<currKing.typeDown.size; i++){
-    if(currKing.typeDown[i].price-10>1){
-      currKing.typeDown[i].price-=10;
+  candidates.length=0;
+
+  //for(i=0; i<currKing.typeUp.size; i++){
+    currKing.typeUp.price+=10;
+    currKing.typeUp.bias+=20;
+  //}
+
+  //for(i=0; i<currKing.typeDown.size; i++){
+    if(currKing.typeDown.price-10>1){
+      currKing.typeDown.price-=10;
     }
     else{
-      currKing.typeDown[i].price=1
+      currKing.typeDown.price=1
     }
-    if(currKing.typeDown[i].bias-20<10){
-      currKing.typeDown[i].price=10
+    if(currKing.typeDown.bias-20<10){
+      currKing.typeDown.price=10
     }
     else{
-      currKing.typeDown[i].bias-=20;
+      currKing.typeDown.bias-=20;
     }
-  }
+  //}
+  document.getElementById("KingName").innerHTML = currKing.name;
+  document.getElementById("KingDescription").innerHTML = currKing.description;
+  pick_candidates();
+
 }
 var lastEv = null;
 function get_event(){
@@ -258,8 +275,7 @@ function get_event(){
   lastEv=randEv
 }
 function create_events(){
-  //var events = [];
-  //alert("Events loaded!");
+
   create = new ev(swords, blanks, "Axes in Fashion",
   "After a recent raid by some dashing vikings, people have become smitten with axes."
   , 10, 0, -20, 0);
@@ -411,8 +427,20 @@ window.setInterval(function() {
       get_event();
     }
 
+    if(time % 100 ==0){
+      succession();
+    }
+
     // Calculate and update the price, average cost, total return values.
     // only show average cost/total return if you actually own the item
+    document.getElementById("KingName").innerHTML = currKing.name;
+    document.getElementById("KingDescription").innerHTML = currKing.description;
+    var count = 0;
+    for(king of candidates){
+      document.getElementById("Succ"+count+"Name").innerHTML = king.name;
+      document.getElementById("Succ"+count+"Desc").innerHTML = king.description;
+      count++;
+    }
     for (item of allItems) {
 
         document.getElementById(item.name + "Price").innerHTML = item.price.toFixed(2);

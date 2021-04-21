@@ -154,7 +154,17 @@ button {
 }
 
 #monarch-inner-container {
-  border: solid black 1px;
+
   width: 90%;
-  height: 100%;
+  height: 50%;
+}
+#Succ0{
+
+float:left;
+width:49%
+}
+#Succ1{
+
+float:right;
+width:49%
 }
