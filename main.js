@@ -248,7 +248,9 @@ var lastEv = null;
 function get_event(){
   var randEv = new ev();
   randEv=events[Math.floor(Math.random() * events.length)];
-  alert(randEv.title);
+  var m = randEv.title.concat("\n");
+  var message = m.concat(randEv.text)
+  alert(message);
   if(randEv.item1.name != "blanks"){
     if(randEv.item1.vol + randEv.Vol1<1){
       randEv.item1.vol = 1;
