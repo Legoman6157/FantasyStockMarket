@@ -139,13 +139,14 @@ button {
   margin: 0;
 }
 .stock-option-container {
+  width: 100%;
   border: 1px solid black;
   background: rgba(207, 167, 48, .5);
-  margin: 10px;
-  padding: 5px;
+  display: table;
 }
 .stock-option-container h3, #quest-outer-container h3 {
-  margin: 5px;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 .stock-option-container button, #quest-inner-container button {
   background: none;
@@ -154,10 +155,37 @@ button {
   background: rgba(198, 121, 6, .5);
 }
 .stock-option-container button:hover, #quest-outer-container button:hover {
-    background: rgba(123, 76, 4, .5);
+  background: rgba(123, 76, 4, .5);
 }
 .stock-option-container button:active, #quest-inner-container button:active {
   background: rgba(99, 61, 3, .5);
+}
+.stock-option-icon {
+  width: 20%;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#sword-icon-div {
+  background-image: url("images/sword.png");
+}
+#scroll-icon-div {
+  background-image: url("images/scroll2.png");
+}
+#wine-icon-div {
+  background-image: url("images/wine.png");
+}
+#dragon-scale-icon-div {
+  background-image: url("images/dragon_scale.png");
+}
+.stock-option-info {
+  width: 80%;
+}
+.stock-option-icon, .stock-option-info {
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  float: none;
 }
 #stock-options-tab-container {
   margin-top: 5px;

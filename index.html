@@ -49,32 +49,37 @@
 
         <div id="war-container">
           <div class="stock-option-container">
-            <h3>Swords</h3>
-            <button onClick="buyItem(10, swords)">+10</button>
-            <button onClick="buyItem(1, swords)">Buy sword</button>
-            <button onClick="sellItem(1, swords)">Sell sword</button>
-            <button onClick="sellItem(10, swords)">-10</button>
-            <br/>
-            Swords: <span id="swordQuantity">0</span>
-            <br/>
-            Sword Price: <span id="swordPrice">0</span>g
-            <div id="sword-position-container" style="display: inline" style="visibility: hidden">
-              <!-- <br/>
-              Average Cost: <span id="swordAverageCost">0</span> -->
+            <div id="sword-icon-div" class="stock-option-icon"></div>
+            <div class="stock-option-info">
+              <h3>Swords</h3>
+              <button onClick="buyItem(10, swords)">+10</button>
+              <button onClick="buyItem(1, swords)">Buy sword</button>
+              <button onClick="sellItem(1, swords)">Sell sword</button>
+              <button onClick="sellItem(10, swords)">-10</button>
               <br/>
-              <!-- lord help me what is the correct way to do this -->
-              Total Return: <span id="swordTotalReturnColor"><span id="swordTotalReturnSign">+</span><span id="swordTotalReturn">0</span>g</span>
+              Swords: <span id="swordQuantity">0</span>
+              <br/>
+              Sword Price: <span id="swordPrice">0</span>g
+              <div id="sword-position-container" style="display: inline" style="visibility: hidden">
+                <!-- <br/>
+                Average Cost: <span id="swordAverageCost">0</span> -->
+                <br/>
+                <!-- lord help me what is the correct way to do this -->
+                Total Return: <span id="swordTotalReturnColor"><span id="swordTotalReturnSign">+</span><span id="swordTotalReturn">0</span>g</span>
+              </div>
+              <br/>
+              Bias [<span id="swordBias">0</span>]: <button onClick="b_up(swords)">+</button> <button onClick="b_down(swords)">-</button>
+              <br/>
+              Volatility [<span id="swordVol">0</span>]: <button onClick="v_up(swords)">+</button> <button onClick="v_down(swords)">-</button>
             </div>
-            <br/>
-            Bias [<span id="swordBias">0</span>]: <button onClick="b_up(swords)">+</button> <button onClick="b_down(swords)">-</button>
-            <br/>
-            Volatility [<span id="swordVol">0</span>]: <button onClick="v_up(swords)">+</button> <button onClick="v_down(swords)">-</button>
           </div>
         </div>
           <!-- Swords -->
 
         <div id="magic-container">
           <div class="stock-option-container">
+            <div id="scroll-icon-div" class="stock-option-icon"></div>
+            <div class="stock-option-info">
             <h3>Scrolls</h3>
             <button onClick="buyItem(10, scrolls)">+10</button>
             <button onClick="buyItem(1, scrolls)">Buy scroll</button>
@@ -96,10 +101,13 @@
             <br/>
             Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up(scrolls)">+</button> <button onClick="v_down(scrolls)">-</button>
           </div>
+          </div>
         </div>
 
         <div id="goods-container">
           <div class="stock-option-container">
+            <div id="wine-icon-div" class="stock-option-icon"></div>
+            <div class="stock-option-info">
           <h3>Wine</h3>
           <button onClick="buyItem(10, wine)">+10</button>
           <button onClick="buyItem(1, wine)">Buy Wine</button>
@@ -122,9 +130,12 @@
           Volatility [<span id="wineVol">0</span>]: <button onClick="v_up(wine)">+</button> <button onClick="v_down(wine)">-</button>
         </div>
         </div>
+        </div>
 
         <div id="monster-parts-container">
           <div class="stock-option-container">
+            <div id="dragon-scale-icon-div" class="stock-option-icon"></div>
+            <div class="stock-option-info">
             <h3>Dragon Scales</h3>
             <button onClick="buyItem(10, dragon_scales)">+10</button>
             <button onClick="buyItem(1, dragon_scales)">Buy Dragon Scales</button>
@@ -145,6 +156,7 @@
             Bias [<span id="dragon_scaleBias">0</span>]: <button onClick="b_up(dragon_scales)">+</button> <button onClick="b_down(dragon_scales)">-</button>
             <br/>
             Volatility [<span id="dragon_scaleVol">0</span>]: <button onClick="v_up(dragon_scales)">+</button> <button onClick="v_down(dragon_scales)">-</button>
+        </div>
         </div>
         </div>
         </div>
