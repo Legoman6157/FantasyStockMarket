@@ -53,7 +53,7 @@ body {
   height: 75px;
   margin-top: calc(65vh - 45px);
   margin-left: -108px;
-  background-image: url("images/start-button-background.png");
+  background-image: url("start-button-background.png");
   background-color: rgba(0, 0, 0, 0);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -168,16 +168,16 @@ button {
   background-repeat: no-repeat;
 }
 #sword-icon-div {
-  background-image: url("images/sword.png");
+  background-image: url("sword.png");
 }
 #scroll-icon-div {
-  background-image: url("images/scroll2.png");
+  background-image: url("scroll2.png");
 }
 #wine-icon-div {
-  background-image: url("images/wine.png");
+  background-image: url("wine.png");
 }
 #dragon-scale-icon-div {
-  background-image: url("images/dragon_scale.png");
+  background-image: url("dragon_scale.png");
 }
 .stock-option-info {
   width: 70%;
