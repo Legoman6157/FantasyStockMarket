@@ -430,25 +430,30 @@ function setActiveStockTab(activeTabNum) {
   $(stockContentIDs[activeTabNum]).show();
 }
 
+var numPopups = 0;
+
 function makePopup(message) {
-  var newPopup = $("<div></div>");
-  var div_msg = $("<div>" + message + "</div>");
-  div_msg.css("height", "80%");
-  div_msg.css("width", "100%");
-  div_msg.css("overflow-y", "scroll");
-  var acknowledgeButton = $("<button>",
+  var $newPopup = $("<div></div>");
+  var $div_msg = $("<div>" + message + "</div>");
+  $div_msg.css("height", "80%");
+  $div_msg.css("width", "100%");
+  $div_msg.css("overflow-y", "scroll");
+  var $acknowledgeButton = $("<button>",
   {
     text: "Okay"
   });
-  acknowledgeButton.click(function() {
-    $(".popup").remove();
-    $("#popup-container").css("z-index", 0);
+  $acknowledgeButton.click(function() {
+    $(this).parent().remove();
+    numPopups--;
+    if (numPopups === 0)
+      $("#popup-container").css("z-index", 0);
   });
-  newPopup.addClass("popup");
-  newPopup.append(div_msg);
-  newPopup.append(acknowledgeButton);
-  $("#popup-container").append(newPopup);
+  $newPopup.addClass("popup");
+  $newPopup.append($div_msg);
+  $newPopup.append($acknowledgeButton);
+  $("#popup-container").append($newPopup);
   $("#popup-container").css("z-index", 3);
+  numPopups++;
 }
 
 function hideWelcome() {
