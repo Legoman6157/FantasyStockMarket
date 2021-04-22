@@ -1,18 +1,104 @@
+#popup-container {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background: none;
+  position: fixed;
+  z-index: 0;
+}
+.popup {
+  display: inline;
+  width: 260px;
+  height: 160px;
+  margin-top: calc(50vh - 80px);
+  margin-left: -150px;
+  padding: 18px;
+  position: fixed;
+  z-index: 4;
+  background-color: #F3DFA0;
+  border: 2px solid black;
+  border-radius: 20px;
+  word-wrap: break-word;
+  vertical-align: bottom;
+}
+.popup button {
+  margin-top: 20px;
+}
 body {
-  margin-top: 4%;
-  margin-left: 15%;
-  margin-right: 15%;
-  background-image: url('scroll-5.png');
-  background-position: top;
-  background-size: 100%;
+  margin: 0;
   font-family: Georgia;
 }
+#welcome-container {
+  text-align: center;
+}
+#welcome-image {
+  position: fixed;
+  z-index: 1;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+#welcome-title {
+  width: 582px;
+  margin-top: 18vh;
+  margin-left: -291px;
+  font-family: "Beth Ellen", Georgia;
+  display: inline;
+  position: fixed;
+  z-index: 2;
+  font-size: 40pt;
+}
+#start-button {
+  width: 216px;
+  height: 75px;
+  margin-top: calc(65vh - 45px);
+  margin-left: -108px;
+  background-image: url("images/start-button-background.png");
+  background-color: rgba(0, 0, 0, 0);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: fixed;
+  z-index: 2;
+  border: none;
+  font-size: 25pt;
+}
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: solid black 1px;
+}
+#bg-left {
+  float: left;
+  width: 20%;
+  position: relative;
+}
+#main-content-container {
+  width: 100%;
+  height: 1616px;
+  background-image: url('images/scroll.png');
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center 0;
+  /* z-index: 2; */
+  position: absolute;
+}
+#info-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+#bg-right {
+  float: right;
+  width: 20%;
+  position: relative;
+}
 #header {
-font-family: 'Beth Ellen', Georgia;
+  width: 100%;
+  font-family: 'Beth Ellen', Georgia;
   font-size: 40pt;
   text-align: center;
   color: black;
-  padding-bottom: 11%;
+  padding: 3% 0 5% 0;
 }
 .content {
   font-size: 15pt;
@@ -21,35 +107,119 @@ font-family: 'Beth Ellen', Georgia;
   width: 100%;
   text-align: center;
 }
+#money-container {
+  width: 100%;
+  text-align: center;
+}
+#tab-container {
+  width: 90%;
+  float: none;
+  text-align: center;
+  margin: 5px 5% 20px 5%;
+}
+.active-tab {
+  background: rgba(173, 106, 5, .5);
+}
+.inactive-tab {
+  background: rgba(98, 60, 4, .5);
+}
 #stock-outer-container {
-  float: left;
-  width: 50%;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 40%;
+}
+#stock-outer-container h1 {
+  margin: 0;
 }
 #stock-inner-container {
-  /* float: center; */
   text-align: center;
-  border-left: solid black 1px;
-  border-right: solid black 1px;
-  width: 90%;
+  width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
 }
+.stock-option-container {
+  width: 100%;
+  border: 1px solid black;
+  background: rgba(207, 167, 48, .5);
+  display: table;
+}
+.stock-option-container h3, #quest-outer-container h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.stock-option-container button, #quest-inner-container button {
+  background: none;
+}
+.stock-option-container:hover {
+  background: rgba(198, 121, 6, .5);
+}
+.stock-option-container button:hover, #quest-outer-container button:hover {
+  background: rgba(123, 76, 4, .5);
+}
+.stock-option-container button:active, #quest-inner-container button:active {
+  background: rgba(99, 61, 3, .5);
+}
+.stock-option-icon {
+  width: 30%;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#sword-icon-div {
+  background-image: url("images/sword.png");
+}
+#scroll-icon-div {
+  background-image: url("images/scroll2.png");
+}
+#wine-icon-div {
+  background-image: url("images/wine.png");
+}
+#dragon-scale-icon-div {
+  background-image: url("images/dragon_scale.png");
+}
+.stock-option-info {
+  width: 70%;
+  text-align: left;
+}
+.stock-option-icon, .stock-option-info {
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  float: none;
+}
+#stock-options-tab-container {
+  margin-top: 5px;
+}
+#magic-container {
+  display: none;
+}
+#goods-container {
+  display: none;
+}
+#monster-parts-container {
+  display: none;
+}
 #quest-outer-container {
-  float: right;
-  width: 50%;
+  display: none;
+  width: 100%;
+  height: 40%;
+}
+#quest-outer-container h1 {
+  margin-top: 0;
 }
 #quest-inner-container {
-  /* float: right; */
   text-align: center;
-  border-left: solid black 1px;
-  border-right: solid black 1px;
-  width: 90%;
+  width: 70%;
   height: 100%;
 }
-button {
-  font-family: inherit;
-  font-size: inherit;
-  background: none;
-  border: solid black 1px;
+#monarch-outer-container {
+  display: none;
+  width: 100%;
+  text-align: center;
+}
+
+#monarch-outer-container h1 {
+  margin-top: 0;
 }

@@ -1,86 +1,223 @@
+
 <html>
 <meta charset='UTF-8'>
 <head>
     <link rel="stylesheet" type="text/css" href="interface.css" />
     <link href='https://fonts.googleapis.com/css?family=Beth Ellen' rel='stylesheet'>
+
 </head>
-<body onload="create_events()">
-  <img id="bg-left" src="bg-right.png">
-  <img id="bg-right" src="bg-right.png">
+
+<body onload="create_events(); create_kings(); pick_candidates()">
+  <div id="popup-container"></div>
+  <div id="welcome-container">
+    <img id="welcome-image" src="images/Title page.png">
+    <h1 id="welcome-title">Merchant Sim 1434</h1>
+    <button id="start-button" onclick="hideWelcome()">Start</button>
+  </div>
+
+  <img id="bg-left" src="images/bg-right.png">
+  <img id="bg-right" src="images/bg-right.png">
+
   <div id="main-content-container">
     <div id="header">Merchant Sim 1434</div>
-    <div id="time-container" class="content">
-      Trading Day: <span id="tradingDay">1</span>, <span id="tradingHour">0</span>:00
-      &nbsp;
-      Time: <span id='hour'>0</span>
-    </div>
-    <div id="money-container" class="content">
-      Gold: <span id="gold">0</span>g
-    </div>
-    <div id="stock-outer-container" class="content" align="center">
-      <div id="stock-inner-container" class="content">
-        <h1>Stock Options</h1>
-
-        <!-- Scrolls -->
-        <div class="stock-option-container">
-          <h3>Scrolls</h3>
-          <button onClick="buyItem(10, scrolls)">+10</button>
-          <button onClick="buyItem(1, scrolls)">Buy scroll</button>
-          <button onClick="sellItem(1, scrolls)">Sell scroll</button>
-          <button onClick="sellItem(10, scrolls)">-10</button>
-          <br/>
-          Scrolls: <span id="scrollQuantity">0</span>
-          <br/>
-          Scroll Price: <span id="scrollPrice">0</span>g
-          <div id="scroll-position-container" style="display: inline" style="visibility: hidden">
-            <br/>
-            Average Cost: <span id="scrollAverageCost">0</span>g
-            <br/>
-            <!-- lord help me what is the correct way to do this -->
-            Total Return: <span id="scrollTotalReturnColor"><span id="scrollTotalReturnSign">+</span><span id="scrollTotalReturn">0</span>g</span>
-          </div>
-          <br/>
-          Bias [<span id="scrollBias">0</span>]: <button onClick="b_up(scrolls)">+</button> <button onClick="b_down(scrolls)">-</button>
-          <br/>
-          Volatility [<span id="scrollVol">0</span>]: <button onClick="v_up(scrolls)">+</button> <button onClick="v_down(scrolls)">-</button>
-        </div>
-
-        <!-- Swords -->
-
-        <div class="stock-option-container">
-          <h3>Swords</h3>
-          <button onClick="buyItem(10, swords)">+10</button>
-          <button onClick="buyItem(1, swords)">Buy sword</button>
-          <button onClick="sellItem(1, swords)">Sell sword</button>
-          <button onClick="sellItem(10, swords)">-10</button>
-          <br/>
-          Swords: <span id="swordQuantity">0</span>
-          <br/>
-          Sword Price: <span id="swordPrice">0</span>g
-          <div id="sword-position-container" style="display: inline" style="visibility: hidden">
-            <br/>
-            Average Cost: <span id="swordAverageCost">0</span>g
-            <br/>
-            <!-- lord help me what is the correct way to do this -->
-            Total Return: <span id="swordTotalReturnColor"><span id="swordTotalReturnSign">+</span><span id="swordTotalReturn">0</span>g</span>
-          </div>
-          <br/>
-          Bias [<span id="swordBias">0</span>]: <button onClick="b_up(swords)">+</button> <button onClick="b_down(swords)">-</button>
-          <br/>
-          Volatility [<span id="swordVol">0</span>]: <button onClick="v_up(swords)">+</button> <button onClick="v_down(swords)">-</button>
-        </div>
+    <div id="info-container">
+      <div id="time-container" class="content">
+        Trading Day: <span id="tradingDay">1</span>, <span id="tradingHour">0</span>:00
+        &nbsp;
 
       </div>
-    </div>
-    <div id="quest-outer-container" class="content" align="center">
-      <div id="quest-inner-container" class="content">
-        <h1>Quests</h3>
-        <button onClick="basicClick(1)">Go on quest</button>
-        <button onClick="hireAdventurer(1)">Hire adventurer - <span id="adventurerCost">10</span>g</button>
-        Adventurers: <span id="adventurers">0</span>
+      <div id="money-container" class="content">
+        Gold: <span id="gold">0</span>g
+      </div>
+      <div id="tab-container">
+        <button id="stock-tab" class="active-tab" onclick="setActiveMainTab(0)">Stocks</button><!--Padding protect
+        --><button id="quest-tab" class="inactive-tab" onclick="setActiveMainTab(1)">Quests</button><!--Padding protect
+        --><button id="monarch-tab" class="inactive-tab" onclick="setActiveMainTab(2)">Monarchs</button>
+      </div>
+      <div id="stock-outer-container" class="content" align="center">
+        <div id="stock-inner-container" class="content">
+          <h1>Stock Options</h1>
+
+        <div id="stock-options-tab-container">
+          <button id="war-tab" class="active-tab" onclick="setActiveStockTab(0)">War</button><!--Padding protect
+          --><button id="magic-tab" class="inactive-tab" onclick="setActiveStockTab(1)">Magic</button><!--Padding protect
+          --><button id="goods-tab" class="inactive-tab" onclick="setActiveStockTab(2)">Goods</button><!--Padding protect
+          --><button id="monster-parts-tab" class="inactive-tab" onclick="setActiveStockTab(3)">Monster parts</button>
+        </div>
+
+        <!-- Scrolls -->
+
+        <div id="war-container">
+          <div class="stock-option-container">
+            <div id="sword-icon-div" class="stock-option-icon"></div>
+            <div class="stock-option-info">
+              <h3>Swords</h3>
+              <button onClick="buyItem(10, swords)">+10</button>
+              <button onClick="buyItem(1, swords)">Buy sword</button>
+              <button onClick="sellItem(1, swords)">Sell sword</button>
+              <button onClick="sellItem(10, swords)">-10</button>
+              <br/>
+              Swords: <span id="swordQuantity">0</span>
+              <br/>
+              Sword Price: <span id="swordPrice">0</span>g
+              <div id="sword-position-container" style="display: inline" style="visibility: hidden">
+                <!-- <br/>
+                Average Cost: <span id="swordAverageCost">0</span> -->
+                <br/>
+                <!-- lord help me what is the correct way to do this -->
+                Total Return: <span id="swordTotalReturnColor"><span id="swordTotalReturnSign">+</span><span id="swordTotalReturn">0</span>g</span>
+              </div>
+              <br/>
+
+            </div>
+          </div>
+        </div>
+          <!-- Swords -->
+
+        <div id="magic-container">
+          <div class="stock-option-container">
+            <div id="scroll-icon-div" class="stock-option-icon"></div>
+            <div class="stock-option-info">
+            <h3>Scrolls</h3>
+            <button onClick="buyItem(10, scrolls)">+10</button>
+            <button onClick="buyItem(1, scrolls)">Buy scroll</button>
+            <button onClick="sellItem(1, scrolls)">Sell scroll</button>
+            <button onClick="sellItem(10, scrolls)">-10</button>
+            <br/>
+            Scrolls: <span id="scrollQuantity">0</span>
+            <br/>
+            Scroll Price: <span id="scrollPrice">0</span>g
+            <div id="scroll-position-container" style="display: inline" style="visibility: hidden">
+              <!-- <br/>
+              Average Cost: <span id="scrollAverageCost">0</span>g -->
+              <br/>
+              <!-- lord help me what is the correct way to do this -->
+              Total Return: <span id="scrollTotalReturnColor"><span id="scrollTotalReturnSign">+</span><span id="scrollTotalReturn">0</span>g</span>
+            </div>
+            <br/>
+
+          </div>
+          </div>
+        </div>
+
+        <div id="goods-container">
+          <div class="stock-option-container">
+            <div id="wine-icon-div" class="stock-option-icon"></div>
+            <div class="stock-option-info">
+          <h3>Wine</h3>
+          <button onClick="buyItem(10, wine)">+10</button>
+          <button onClick="buyItem(1, wine)">Buy Wine</button>
+          <button onClick="sellItem(1, wine)">Sell Wine</button>
+          <button onClick="sellItem(10, wine)">-10</button>
+          <br/>
+          Wine: <span id="wineQuantity">0</span>
+          <br/>
+          Wine Price: <span id="winePrice">0</span>g
+          <div id="wine-position-container" style="display: inline" style="visibility: hidden">
+            <br/>
+            Average Cost: <span id="wineAverageCost">0</span>g
+            <br/>
+            <!-- lord help me what is the correct way to do this -->
+            Total Return: <span id="wineTotalReturnColor"><span id="wineTotalReturnSign">+</span><span id="wineTotalReturn">0</span>g</span>
+          </div>
+          <br/>
+
+        </div>
+        </div>
+        </div>
+
+        <div id="monster-parts-container">
+          <div class="stock-option-container">
+            <div id="dragon-scale-icon-div" class="stock-option-icon"></div>
+            <div class="stock-option-info">
+            <h3>Dragon Scales</h3>
+            <button onClick="buyItem(10, dragon_scales)">+10</button>
+            <button onClick="buyItem(1, dragon_scales)">Buy Dragon Scales</button>
+            <button onClick="sellItem(1, dragon_scales)">Sell Dragon Scales</button>
+            <button onClick="sellItem(10, dragon_scales)">-10</button>
+            <br/>
+            Dragon Scales: <span id="dragon_scaleQuantity">0</span>
+            <br/>
+            Dragon Scale Price: <span id="dragon_scalePrice">0</span>g
+            <div id="dragon_scale-position-container" style="display: inline" style="visibility: hidden">
+              <br/>
+              Average Cost: <span id="dragon_scaleAverageCost">0</span>g
+              <br/>
+              <!-- lord help me what is the correct way to do this -->
+              Total Return: <span id="dragon_scaleTotalReturnColor"><span id="dragon_scaleTotalReturnSign">+</span><span id="dragon_scaleTotalReturn">0</span>g</span>
+            </div>
+            <br/>
+
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+      <div id="quest-outer-container" class="content" align="center">
+        <div id="quest-inner-container" class="content">
+          <h1>Quests</h1>
+			  Go around begging for money.
+			  <br/>
+        	  <button onClick="begQuest()" style="float: right">
+				  <span id="begCDcolor">
+					  <span id="begCD">Free</span>
+				  </span>
+			  </button>
+			  <br/>
+			  <br/>
+			  Use dark magic to attempt to double scrolls.
+			  <br/>
+        	  <button onClick="darkQuest()" style="float: right">
+				  <span id="darkCDcolor">
+					  <span id="darkCD">Free</span>
+				  </span>
+			  </button>
+			  <br/>
+			  <br/>
+			  Invest in sword technology (price +12.5% over time).
+			  <br/>
+        	  <button onClick="swordQuest()" style="float: right">
+				  <span id="swordCDcolor">
+					  <span id="swordCD">Free</span>
+				  </span>
+			  </button>
+			  <br/>
+			  <br/>
+			  Manipulate wine prices (may have unintended effects)
+			  <br/>
+			  <button onClick="wineQuest()" style="float: right">
+				<span id="wineCDcolor">
+					<span id="wineCD">Free</span>
+				</span>
+			  </button>
+        </div>
+      </div>
+      <div id="monarch-outer-container" class="content" align="center">
+        <div id="monarch-inner-container" class="content">
+          <h1>Monarch</h1>
+            <h2 id="KingName"></h2>
+            <b id="KingDescription"></b>
+            <br/>
+            <br/>
+            <br/>
+            <h1>Potential Successors</h1>
+            <div id="Succ0" class="content" align="center">
+              <h2 id="Succ0Name"></h2>
+              <b id="Succ0Desc"></b>
+              <br>Chance of succession: 50%
+            </div>
+            <div id="Succ1" class="content" align="center">
+              <h2 id="Succ1Name"></h2>
+              <b id="Succ1Desc"></b>
+              <br>Chance of succession: 50%
+            </div>
+
+        </div>
+
       </div>
     </div>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript" src="main.js"></script>
 </body>
-</html
+</html>
