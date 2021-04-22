@@ -8,4 +8,4 @@ COPY sword.png  /usr/share/nginx/html
 COPY scroll2.png /usr/share/nginx/html
 COPY wine.png /usr/share/nginx/html
 COPY dragon_scale.png /usr/share/nginx/html
-COPY Title\ page.png /usr/share/nginx/html
+COPY "Title page.png" /usr/share/nginx/html
