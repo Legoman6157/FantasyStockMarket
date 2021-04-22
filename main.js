@@ -225,10 +225,14 @@ function create_kings(){
   "A military general who believes the neibouring kindom will declar war", swords, wine);
   k3 = new king("Duke Hedoclease", "A man who believes that life is short and must be enjoyed", wine, scrolls);
   k4 = new king("Morgana the Huntress", "A distant relative to the current monarch. Famous for her monster hunting.", dragon_scales, wine);
+  k5 = new king("Rodrick the Kind", "The youngest of the royal line and a lover of all living creatures", scrolls, dragon_scales);
+  k6 = new king("Mordred the Duelist", "A mysterious figure that is only known for their dueling prowess.", swords, scrolls);
   kings.push(k1);
   kings.push(k2);
   kings.push(k3);
   kings.push(k4);
+  kings.push(k5);
+  kings.push(k6);
 }
 
 function pick_candidates(){
@@ -313,7 +317,7 @@ function get_event(){
 function create_events(){
 
   create = new ev(swords, blanks, "Axes in Fashion",
-  "After a recent raid by some dashing vikings, people have become smitten with axes."
+  "After a recent raid by some dashing vikings, people have become smitten with axes and lost interest in swrods."
   , 10, 0, -20, 0);
   ev1 = new ev(wine, blanks, "Celebration!", "The royal family has blessed us with a new child. The kindom dinks in merryment!", 10, 0, 20, 0)
   ev2 = new ev(scrolls, blanks, "Magical Interests!", "Many in the kingdom have taken up an interest in novice magic.", 8, 0, 10, 0)
@@ -508,8 +512,8 @@ window.setInterval(function() {
     for (item of allItems) {
 
         document.getElementById(item.name + "Price").innerHTML = item.price.toFixed(2);
-        document.getElementById(item.name + "Bias").innerHTML = item.bias.toFixed(2);
-        document.getElementById(item.name + "Vol").innerHTML = item.vol.toFixed(2);
+    //    document.getElementById(item.name + "Bias").innerHTML = item.bias.toFixed(2);
+    //    document.getElementById(item.name + "Vol").innerHTML = item.vol.toFixed(2);
         if (item.shares.length > 0) {
             document.getElementById(item.name + "-position-container").style.visibility="visible";
 
@@ -546,5 +550,5 @@ window.setInterval(function() {
 
     document.getElementById("tradingDay").innerHTML = Math.floor(time/24) + 1;
     document.getElementById("tradingHour").innerHTML = Math.floor(time % 24);
-    document.getElementById("hour").innerHTML = time;
+  //  document.getElementById("hour").innerHTML = time;
 }, gamespeed);
