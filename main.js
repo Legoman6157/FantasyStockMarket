@@ -247,7 +247,7 @@ function pick_candidates(){
 }
 
 function succession(){
-  alert("A new ruler has been crowned!");
+  makePopup("A new ruler has been crowned!");
   var i;
   currKing= candidates[[Math.floor(Math.random() * candidates.length)]];
   candidates.length=0;
@@ -283,7 +283,7 @@ function get_event(){
 
   var m = randEv.title.concat("\n");
   var message = m.concat(randEv.text)
-  alert(message);
+  makePopup(message);
 
   if(randEv.item1.name != "blanks"){
     if(randEv.item1.vol + randEv.Vol1<1){
