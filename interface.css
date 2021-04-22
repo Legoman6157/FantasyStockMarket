@@ -2,29 +2,41 @@ body {
   margin: 0;
   font-family: Georgia;
 }
+#welcome-image {
+  position: fixed;
+  z-index: 1;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+#start-button {
+  margin-top: 59vh;
+  margin-left: 27vw;
+  position: fixed;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 25pt;
+  color: black;
+}
 button {
   font-family: inherit;
   font-size: inherit;
   border: solid black 1px;
 }
-#pseudo-image {
-  position: absolute;
-  z-index: 0;
-}
 #bg-left {
   float: left;
   width: 20%;
-  z-index: 1;
   position: relative;
 }
 #main-content-container {
   width: 100%;
-  height: 1550px;
-  background-image: url('images/scroll-5.png');
+  height: 1616px;
+  background-image: url('images/scroll.png');
   background-repeat: no-repeat;
   background-size: 90%;
   background-position: center 0;
-  z-index: 2;
+  /* z-index: 2; */
   position: absolute;
 }
 #info-container {
@@ -35,7 +47,6 @@ button {
 #bg-right {
   float: right;
   width: 20%;
-  z-index: 1;
   position: relative;
 }
 #header {
@@ -45,7 +56,7 @@ button {
   text-align: center;
   color: black;
   padding: 3% 0 5% 0;
-  z-index: 3;
+  /* z-index: 3; */
 }
 .content {
   font-size: 15pt;
@@ -62,8 +73,7 @@ button {
   width: 90%;
   float: none;
   text-align: center;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 5px 5% 0 5%;
 }
 .active-tab {
   background: rgba(173, 106, 5, .5);
@@ -88,7 +98,7 @@ button {
 }
 .stock-option-container {
   border: 1px solid black;
-  background: rgba(223, 136, 7, .5);
+  background: rgba(207, 167, 48, .5);
   margin: 10px;
   padding: 5px;
 }
@@ -106,6 +116,18 @@ button {
 }
 .stock-option-container button:active, #quest-inner-container button:active {
   background: rgba(99, 61, 3, .5);
+}
+#stock-options-tab-container {
+  margin-top: 5px;
+}
+#magic-container {
+  display: none;
+}
+#goods-container {
+  display: none;
+}
+#monster-parts-container {
+  display: none;
 }
 #quest-outer-container {
   display: none;
@@ -132,7 +154,17 @@ button {
 }
 
 #monarch-inner-container {
-  border: solid black 1px;
+
   width: 90%;
-  height: 100%;
+  height: 50%;
+}
+#Succ0{
+
+float:left;
+width:49%
+}
+#Succ1{
+
+float:right;
+width:49%
 }
