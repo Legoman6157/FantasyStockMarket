@@ -457,7 +457,6 @@ function hideWelcome() {
   $("#start-button").remove();
   console.log("Hiding welcome message");
 }
-hideWelcome();
 
 
 // End of tab functions --------------------------------------------------------
