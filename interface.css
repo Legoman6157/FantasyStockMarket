@@ -1,6 +1,35 @@
+#popup-container {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background: none;
+  position: fixed;
+  z-index: 0;
+}
+.popup {
+  display: inline;
+  width: 260px;
+  height: 160px;
+  margin-top: calc(50vh - 80px);
+  margin-left: -150px;
+  padding: 18px;
+  position: fixed;
+  z-index: 4;
+  background-color: #F3DFA0;
+  border: 2px solid black;
+  border-radius: 20px;
+  word-wrap: break-word;
+  vertical-align: bottom;
+}
+.popup button {
+  margin-top: 20px;
+}
 body {
   margin: 0;
   font-family: Georgia;
+}
+#welcome-container {
+  text-align: center;
 }
 #welcome-image {
   position: fixed;
@@ -9,15 +38,29 @@ body {
   width: 100vw;
   height: 100vh;
 }
-#start-button {
-  margin-top: 59vh;
-  margin-left: 27vw;
+#welcome-title {
+  width: 582px;
+  margin-top: 18vh;
+  margin-left: -291px;
+  font-family: "Beth Ellen", Georgia;
+  display: inline;
   position: fixed;
   z-index: 2;
-  background: none;
+  font-size: 40pt;
+}
+#start-button {
+  width: 216px;
+  height: 75px;
+  margin-top: calc(65vh - 45px);
+  margin-left: -108px;
+  background-image: url("images/start-button-background.png");
+  background-color: rgba(0, 0, 0, 0);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: fixed;
+  z-index: 2;
   border: none;
   font-size: 25pt;
-  color: black;
 }
 button {
   font-family: inherit;
@@ -73,7 +116,7 @@ button {
   width: 90%;
   float: none;
   text-align: center;
-  margin: 5px 5% 0 5%;
+  margin: 5px 5% 20px 5%;
 }
 .active-tab {
   background: rgba(173, 106, 5, .5);
@@ -90,7 +133,6 @@ button {
 }
 #stock-inner-container {
   text-align: center;
-  border: solid black 1px;
   width: 90%;
   height: 100%;
   padding: 0;

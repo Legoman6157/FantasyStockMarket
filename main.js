@@ -280,11 +280,11 @@ var lastEv = null;
 function get_event(){
   var randEv = new ev();
   randEv=events[Math.floor(Math.random() * events.length)];
-  
+
   var m = randEv.title.concat("\n");
   var message = m.concat(randEv.text)
   alert(message);
-  
+
   if(randEv.item1.name != "blanks"){
     if(randEv.item1.vol + randEv.Vol1<1){
       randEv.item1.vol = 1;
@@ -404,11 +404,6 @@ function setActiveMainTab(activeTabNum) {
   $(mainContentIDs[activeTabNum]).show();
 }
 
-function hideWelcomeImage() {
-  $("#welcome-image").hide();
-  $("#start-button").hide();
-}
-
 var stockTabIDs = [
   "#war-tab",
   "#magic-tab",
@@ -434,6 +429,35 @@ function setActiveStockTab(activeTabNum) {
   $(stockTabIDs[activeTabNum]).addClass("active-tab");
   $(stockContentIDs[activeTabNum]).show();
 }
+
+function makePopup(message) {
+  var newPopup = $("<div></div>");
+  var div_msg = $("<div>" + message + "</div>");
+  div_msg.css("height", "80%");
+  div_msg.css("width", "100%");
+  div_msg.css("overflow-y", "scroll");
+  var acknowledgeButton = $("<button>",
+  {
+    text: "Okay"
+  });
+  acknowledgeButton.click(function() {
+    $(".popup").remove();
+    $("#popup-container").css("z-index", 0);
+  });
+  newPopup.addClass("popup");
+  newPopup.append(div_msg);
+  newPopup.append(acknowledgeButton);
+  $("#popup-container").append(newPopup);
+  $("#popup-container").css("z-index", 3);
+}
+
+function hideWelcome() {
+  $("#welcome-image").remove();
+  $("#welcome-title").remove();
+  $("#start-button").remove();
+  console.log("Hiding welcome message");
+}
+hideWelcome();
 
 
 // End of tab functions --------------------------------------------------------
